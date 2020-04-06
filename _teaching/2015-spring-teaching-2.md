@@ -1,5 +1,5 @@
 ---
-title: "Data Science Instructor"
+title: "Instructor"
 collection: teaching
 type: "Workshop"
 permalink: /teaching/2015-spring-teaching-1
@@ -9,12 +9,3 @@ location: "Porto Alegre - RS, Brazil"
 ---
 
 Instructor of Data Science and Machine Learning.
-
-Heading 1
-======
-
-Heading 2
-======
-
-Heading 3
-======
