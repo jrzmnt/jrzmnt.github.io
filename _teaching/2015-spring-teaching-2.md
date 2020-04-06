@@ -1,14 +1,14 @@
 ---
-title: "Teaching experience 2"
+title: "Data Science Instructor"
 collection: teaching
 type: "Workshop"
 permalink: /teaching/2015-spring-teaching-1
-venue: "University 1, Department"
-date: 2015-01-01
-location: "City, Country"
+venue: "TargetTrust"
+date: 2018-01-03
+location: "Porto Alegre - RS, Brazil"
 ---
 
-This is a description of a teaching experience. You can use markdown like any other post.
+Instructor of Data Science and Machine Learning.
 
 Heading 1
 ======
