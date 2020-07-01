@@ -1,1 +1,4 @@
-## Please follow this [link](https://jrzmnt.github.io/) to visit my website!
+# README
+
+This page was forked from [Jekyll Repository](https://github.com/jekyll/jekyll).
+
