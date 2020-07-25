@@ -1,0 +1,104 @@
+.container {
+    display: flex;
+}
+
+.grid {
+    width: 300px;
+    height: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    /*background-color: gray;*/
+    background-image: linear-gradient(#c6def1, #f9c6c9);
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    border:none;
+    border-style: solid;
+    border-color: #343a40;
+    border-width: 0px;
+    margin-top: 30px;
+    
+}
+
+.grid div {
+    height: 30px;
+    width: 30px;
+}
+
+.tetromino {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    /* background-color: blue; */
+    border-radius: 5px;
+    border-style: outset;
+    border-color: white;
+    border-width: 3px;
+}
+
+.mini-grid {
+    
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: yellow;
+    background-image: linear-gradient(#faedcb, #f2c6de);
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    border:none;
+    border-style: solid;
+    border-color: #343a40;
+    border-width: 0px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.mini-container {
+    margin-left: 50px;
+    /* border-width: 1px;
+    border-style: solid; */
+}
+
+.start-button{
+    /* border-style: solid;
+    border-width: 1px; */
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.mini-grid div {
+    height: 30px;
+    width: 30px;
+}
+
+.score{
+    color:gray;
+    font-family: Sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 25px;
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin-top: 30px;
+    /* border-style: solid;
+    border-width: 1px; */
+    
+}
+
+.score div{
+    justify-content: center;
+    display: flex;
+    /* border-style: solid;
+    border-width: 1px; */
+    width: 100%;
+}
+
+#signature {
+    margin-top: 20px;
+    text-align: center;
+}
