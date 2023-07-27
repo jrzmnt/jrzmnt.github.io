@@ -4,7 +4,7 @@ title: Publications
 permalink: /publications/
 ---
 
-Below, a list of my publications with colleagues in the last 4 years, where <img src="https://raw.githubusercontent.com/jrzmnt/jrzmnt.github.io/master/images/jo.svg" width="15" height="15"/> is a journal paper, <img src="https://raw.githubusercontent.com/jrzmnt/jrzmnt.github.io/master/images/cf.svg" width="15" height="15"/> a conference paper, and <img src="https://raw.githubusercontent.com/jrzmnt/jrzmnt.github.io/master/images/ot.svg" width="15" height="15"/> an ArXiv paper. For a complete list of papers, check out my [Lattes](http://lattes.cnpq.br/6307746290114554) page.
+Below, a list of my publications with colleagues in the last 4 years, where <img src="https://raw.githubusercontent.com/jrzmnt/jrzmnt.github.io/master/images/jo.svg" width="15" height="15"/> is a journal paper, <img src="https://raw.githubusercontent.com/jrzmnt/jrzmnt.github.io/master/images/cf.svg" width="15" height="15"/> a conference paper, and <img src="https://raw.githubusercontent.com/jrzmnt/jrzmnt.github.io/master/images/ot.svg" width="15" height="15"/> an ArXiv paper. For a complete list of papers, check out my [Google Scholar](https://scholar.google.com/citations?user=LVhKmIIAAAAJ) page.
 
 ---
 
