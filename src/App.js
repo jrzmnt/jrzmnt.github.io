@@ -32,7 +32,7 @@ class App extends React.Component {
     this.toggleMenu = (e) => {
       const words = e.target.href.split("/");
       let menu = words[words.length - 1];
-      if (menu === "") menu = "home";
+      if(menu === "") menu = "home";
       this.setState(({
         menu: menu.toLowerCase()
       }));
@@ -50,9 +50,9 @@ class App extends React.Component {
   componentDidMount = () => {
     const menu = window.location.href.split('/').at(-1);
     if (menu.length === 0) {
-      this.setState({ menu: 'home' });
+      this.setState({menu: 'home'});
     } else {
-      this.setState({ menu: menu });
+      this.setState({menu: menu});
     }
   }
 
@@ -75,6 +75,22 @@ class App extends React.Component {
               <Route path='publications' element={<Publications />} />
               <Route path='experience' element={<Experiences />} />
               <Route path='awards' element={<Awards />} />
+              <Route 
+                path='il-datasets-data'
+                element={
+                  <Redirect
+                    loc='https://huggingface.co/collections/NathanGavenski/imitation-learning-datasets-6542982072defaf65937432d'
+                  />
+                } 
+              />
+              <Route 
+                path='il-datasets-video'
+                element={
+                  <Redirect
+                    loc='https://youtu.be/-6tT29QOJ-k'
+                  />
+                } 
+              />
             </Routes>
           </Container>
         </ThemeContext.Provider>

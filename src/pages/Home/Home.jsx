@@ -33,7 +33,7 @@ function template() {
             Before working with research, I was a machine learning engineer at unico IdTech, specializing in computer vision.<br />
           </p>
           <p>
-            I am a fan of video games, drawing and traveling.<br /><br />
+            I am a fan of video games, drawing and traveling.<br />
             Feel free to get in touch using any of the links below.
           </p>
 

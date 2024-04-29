@@ -1,6 +1,6 @@
 # Welcome to my Github Page 👋
 
-My name is Juarez Monteiro, and I'm from Brazil. Currently I'm a PhD in Computer Science and I work as an AI Researcher at Dell Techonologies. I have worked for the last years as Data Scientist, Machine Learning Engineer, Researcher, and Professor. My main interests are all research involving machine learning and computer vision, gaming, drawing and traveling. Don't be shy to contact me!
+My name is Juarez Monteiro, and I'm from Brazil. Currently I'm a PhD in Computer Science and I work as an AI Researcher at Dell Technologies. I have worked for the last years as Data Scientist, Machine Learning Engineer, Researcher, and Professor. My main interests are all research involving machine learning and computer vision, gaming, drawing and traveling. Don't be shy to contact me!
 
 This page is located at: https://jrzmnt.github.io/
 
@@ -11,7 +11,7 @@ This page is located at: https://jrzmnt.github.io/
 ```
 project
 │   README.md
-│   package.json (dependencies)    
+│   package.json (dependencies)
 │
 └───src
     │   App.js (main page)
