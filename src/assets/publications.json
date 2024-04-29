@@ -1,0 +1,189 @@
+{
+    "publications": [
+        {
+            "title": "Advances in imitation learning from observation",
+            "authors": "Monteiro, Juarez; and Barros, Rodrigo C.",
+            "conference": "Pontifícia Universidade Católica do Rio Grande do Sul",
+            "year": "2023",
+            "bibtex": "@doctoralthesis{monteiro2023self,\n\ttitle={Self-supervised imitation learning from observation},\n\tauthor={Monteiro, Juarez},\n\tyear={2023},\n\tschool={Pontif{\\'\\i}cia Universidade Cat{\\'o}lica do Rio Grande do Sul}\n}",
+            "pdf": "https://tede2.pucrs.br/tede2/bitstream/tede/11131/4/juarez_tese%20final.pdf",
+            "github": ""
+        },
+        {
+            "title": "Self-Supervised Adversarial Imitation Learning \t",
+            "authors": "Monteiro, Juarez; Gavenski, Nathan; Meneguzzi, Felipe; and Barros, Rodrigo C.",
+            "conference": "In Proceedings of the 35rd International Joint Conference on Neural Networks",
+            "year": "IJCNN 2023",
+            "bibtex": "@misc{monteiro2023selfsupervised,\n\ttitle={Self-Supervised Adversarial Imitation Learning},\n\tauthor={Juarez Monteiro and Nathan Gavenski and Felipe Meneguzzi and Rodrigo C. Barros},\n\tyear={2023},\n\teprint={2304.10914},\n\tarchivePrefix={arXiv},\nprimaryClass={cs.LG}\n}",
+            "pdf": "https://arxiv.org/pdf/2304.10914.pdf",
+            "github": "https://github.com/NathanGavenski/SAIL",
+            "tags": [
+                "imitation learning"
+            ]
+        },
+        {
+            "title": "How Resilient are Imitation Learning Methods to Sub-Optimal Experts?",
+            "authors": "Gavenski, Nathan; Monteiro Juarez; Medronha, Adilson and Barros, Rodrigo C.",
+            "conference": "Brazilian Conference on Intelligent Systems",
+            "year": "BRACIS 2022",
+            "bibtex": "@inproceedings{gavenski2022how,\n\t            author=\"Nathan Gavenski and Juarez Monteiro and Adilson Medronha and Rodrigo Barros\",\n\t            title=\"How Resilient are Imitation Learning Methods to Sub-Optimal Experts?\",\n\t            booktitle=\"BRACIS 2022 () \",\n\t            address=\"\",\n\t            days=\"28-1\",\n\t            month=\"nov\",\n\t            year=\"2022\",\n\t            abstract=\"Imitation Learning (IL) algorithms try to mimic expert behavior in order to be capable of performing specific tasks, but it remains unclear what those strategies could achieve when learning from sub-optimal data (faulty experts). Studying how Imitation Learning approaches learn when dealing with different degrees of quality from the observations can benefit tasks such as optimizing data collection, producing interpretable models, reducing bias when using sub-optimal experts, and more. Therefore, in this work we provide extensive experiments to verify how different Imitation Learning agents perform under various degrees of expert optimality. We experiment with four IL algorithms, three of them that learn self-supervisedly and one that uses the ground-truth labels (BC) in four different environments (tasks), and we compare them using optimal and sub-optimal experts. For assessing the performance of each agent, we compute two metrics: Performance and Average Episodic Reward. Our experiments show that IL approaches that learn self-supervisedly are relatively resilient to sub-optimal experts, which is not the case of the supervised approach. We also observe that sub-optimal experts are sometimes beneficial since they seem to act as a kind of regularization method, preventing models from data overfitting.\",\n\t            KEYWORDS=\"Neural Networks; Deep Learning\",\n\t            URL=\"http://XXXXX/225504.pdf\"\n\t        }",
+            "pdf": "https://link.springer.com/chapter/10.1007/978-3-031-21689-3_32",
+            "github": "https://github.com/NathanGavenski/How-resilient-IL-methods-are"
+        },
+        {
+            "title": "Object-Based Goal Recognition UsingReal-World Data",
+            "authors": "Granada, Roger; Monteiro, Juarez; Gavenski, Nathan; and Meneguzzi, Felipe",
+            "conference": "In Proceedings of the 19th Mexican International Conference on Artificial Intelligence",
+            "year": "MICAI 2020",
+            "bibtex": "@inproceedings{granada2020object,\n\ttitle={Object-Based Goal Recognition Using Real-World Data},\n\tauthor={Granada, Roger and Monteiro, Juarez and Gavenski, Nathan and Meneguzzi, Felipe},\n\tbooktitle={Mexican International Conference on Artificial Intelligence},\n\tpages={325--337},\n\tyear={2020},\n\torganization={Springer}\n}",
+            "pdf": "https://link.springer.com/chapter/10.1007/978-3-030-60884-2_24",
+            "github": ""
+        },
+        {
+            "title": "Imitating Unknown Policies via Exploration",
+            "authors": "Gavenski, Nathan; Monteiro, Juarez; Granada, Roger; Meneguzzi, Felipe; and Barros, Rodrigo C.",
+            "conference": "In Proceedings of the 31st British Machine Vision Conference",
+            "year": "BMVC 2020",
+            "bibtex": "@inproceedings{gavenski2020iupe,\n\tauthor = Gavenski, Nathan and Monteiro, Juarez and Granada, Roger and Meneguzzi, Felipe and Barros, Rodrigo C,\n\tpages = 1--8,\n\ttitle = Imitating Unknown Policies via Exploration,\n\turl = https://www.bmvc2020-conference.com/conference/papers/paper_0774.html,\n\tyear = 2020,\n\tbooktitle = International British Machine Vision Virtual Conference\n}",
+            "pdf": "https://arxiv.org/pdf/2008.05660.pdf",
+            "github": "https://github.com/NathanGavenski/IUPE"
+        },
+        {
+            "title": "HAPRec: Hybrid Activity and Plan Recognizer",
+            "authors": "Granada, Roger; Pereira, Ramon F.; Monteiro, Juarez; Amado, Leonardo; Barros, Rodrigo C.; Ruiz, Duncan; Meneguzzi, Felipe R.",
+            "conference": "In Proceedings of the 34th AAAI Conference on Artificial Intelligence. Plan, Activity and Intent Recognition Workshop",
+            "year": "AAAI 2020",
+            "bibtex": "@article{granada2020haprec,\n\ttitle = HAPRec: Hybrid activity and plan recognizer,\n\tauthor = Granada, Roger and Pereira, Ramon Fraga and Monteiro, Juarez and Amado, Leonardo and Barros, Rodrigo C and Ruiz, Duncan and Meneguzzi, Felipe,\n\tjournal = arXiv preprint arXiv:2004.13482,\n\tyear = 2020}",
+            "pdf": "https://arxiv.org/pdf/2004.13482"
+        },
+        {
+            "title": "Augmented Behavioral Cloning from Observation",
+            "authors": "Monteiro, Juarez; Gavenski, Nathan; Granada, Roger; Meneguzzi, Felipe; and Barros, Rodrigo C.",
+            "conference": "In Proceedings of the 33rd International Joint Conference on Neural Networks",
+            "year": "IJCNN 2020",
+            "bibtex": "@inproceedings{MonteiroEtAl2020abco,\n\tauthor = Monteiro, Juarez and Gavenski, Nathan and Granada, Roger and Meneguzzi, Felipe and Barros, Rodrigo C,\n\tlocation = Glasgow, Scotland,\n\tmonth = Jul,\n\tpages = 1--8,\n\ttitle = Augmented Behavioral Cloning from Observation,\n\turl = https://arxiv.org/abs/2004.13529,\n\tyear = 2020,\n\tbooktitle = International Joint Conference on Neural Networks\n}",
+            "pdf": "https://arxiv.org/pdf/2004.13529.pdf",
+            "github": "https://github.com/NathanGavenski/ABCO"
+        },
+        {
+            "title": "Classification of Contractual Conflicts via Learning of Semantic Representations",
+            "authors": "Aires, João P.S.; Granada, Roger; Monteiro, Juarez; Barros, Rodrigo C.; Meneguzzi, Felipe R.",
+            "conference": "In Proceedings of the 18th International Conference on Autonomous Agents and Multiagent Systems",
+            "year": "AAMAS 2019",
+            "bibtex": "@inproceedings{AiresEtAl2019ccclr,\n\tauthor = {Aires, João P.S. and Granada, Roger and Monteiro, Juarez and Barros, Rodrigo C. and Meneguzzi, Felipe R.},\n\ttitle = {Classification of Contractual Conflicts via Learning of Semantic Representations},\n\tbooktitle = {Proceedings of the 18th International Conference on Autonomous Agents and Multiagent Systems},\n\tyear = 2019,\n\tpages = {1764--1766},\n\turl = {http://www.ifaamas.org/Proceedings/aamas2019/pdfs/p1764.pdf}\n}",
+            "pdf": "http://www.ifaamas.org/Proceedings/aamas2019/pdfs/p1764.pdf"
+        },
+        {
+            "title": "Classifying Norm Conflicts using Learned Semantic Representations",
+            "authors": "Aires, João P.S.; Granada, Roger; Monteiro, Juarez; Barros, Rodrigo C.; Meneguzzi, Felipe R.",
+            "conference": "ArXiv Preprint",
+            "year": "2019",
+            "bibtex": "@article{AiresEtAl2019cnculsr,\n\tauthor = {Aires, João P.S. and Granada, Roger and Monteiro, Juarez and Barros, Rodrigo C. and Meneguzzi, Felipe R.},\n\ttitle = {Classifying Norm Conflicts using Learned Semantic Representations},\n\tjournal = {ArXiv Preprint},\n\tyear = 2019,\n\turl = {https://arxiv.org/abs/1906.02121}\n}",
+            "pdf": "https://arxiv.org/abs/1906.02121"
+        },
+        {
+            "title": "Improving Action Recognition Using Temporal Regions",
+            "authors": "Granada, Roger; Aires, João P.S.; Monteiro, Juarez; Meneguzzi, Felipe R.; Barros, Rodrigo C.",
+            "conference": "Journal of Information and Data Management - JIDM",
+            "year": "2018",
+            "bibtex": "@article{GranadaEtAl2018iart,\n\tauthor = {Granada, Roger and Aires, João P.S. and Monteiro, Juarez and Meneguzzi, Felipe R. and Barros, Rodrigo C.},\n\ttitle = {Improving Action Recognition Using Temporal Regions},\n\tjournal = {Journal of Information and Data Management - JIDM},\n\tvolume = 9,\n\tpages = {108--123},\n\tyear = 2018,\n\turl = {http://periodicos.ufmg.br/index.php/jidm/issue/view/655}\n}",
+            "pdf": "http://periodicos.ufmg.br/index.php/jidm/issue/view/655"
+        },
+        {
+            "title": "Fusing Scene Context to Improve Object Recognition",
+            "authors": "Silva, Leandro P.; Granada, Roger; Monteiro, Juarez; Ruiz, Duncan",
+            "conference": "Journal of Information and Data Management - JIDM",
+            "year": "2018",
+            "bibtex": "@article{SilvaEtAl2018fscior,\n\tauthor = {Silva, Leandro P. and Granada, Roger and Monteiro, Juarez and Ruiz, Duncan},\n\ttitle = {Fusing Scene Context to Improve Object Recognition},\n\tjournal = {Journal of Information and Data Management - JIDM},\n\tvolume = 9,\n\tpages = {147--162},\n\tyear = 2018,\n\turl = {http://periodicos.ufmg.br/index.php/jidm/issue/view/655}\n}",
+            "pdf": "http://periodicos.ufmg.br/index.php/jidm/issue/view/655"
+        },
+        {
+            "title": "Evaluating the Feasibility of Deep Learning for Action Recognition in Small Datasets",
+            "authors": "Monteiro, Juarez; Granada, Roger; Aires, João P.; Barros, Rodrigo C.",
+            "conference": "In Proceedings of the 2018 International Joint Conference on Neural Networks",
+            "year": "IJCNN 2018",
+            "bibtex": "@inproceedings{MonteiroEtAl2018efdlarisd,\n\tauthor = {Monteiro, Juarez and Granada, Roger and Aires, João P. and Barros, Rodrigo C.},\n\ttitle = {Evaluating the Feasibility of Deep Learning for Action Recognition in Small Datasets},\n\tbooktitle = {Proceedings of the 2018 International Joint Conference on Neural Networks},\n\turl = {http://ieeexplore.ieee.org/document/8489297},\n\tyear = 2018,\n\tpages = {1--8}\n}",
+            "pdf": "http://ieeexplore.ieee.org/document/8489297"
+        },
+        {
+            "title": "Norm Conflict Identification using Vector Space Offsets",
+            "authors": "Aires, João P.S.; Monteiro, Juarez; Granada, Roger; Meneguzzi, Felipe R.",
+            "conference": "In Proceedings of the 2018 International Joint Conference on Neural Networks",
+            "year": "IJCNN 2018",
+            "bibtex": "@inproceedings{AiresEtAl2018ncivso,\n\tauthor = {Aires, João P.S. and Monteiro, Juarez and Granada, Roger and Meneguzzi, Felipe R.},\n\ttitle = {Norm Conflict Identification using Vector Space Offsets},\n\tbooktitle = {Proceedings of the 2018 International Joint Conference on Neural Networks},\n\turl = {http://ieeexplore.ieee.org/document/8489119},\n\tyear = 2018\n}",
+            "pdf": "http://ieeexplore.ieee.org/document/8489119"
+        },
+        {
+            "title": "Beating Bomberman with Artificial Intelligence",
+            "authors": "Monteiro, Juarez; Granada, Roger; Pinto, Rafael; Barros, Rodrigo C.",
+            "conference": "In: Anais do XV Encontro Nacional de Inteligência Artificial e Computacional",
+            "year": "ENIAC 2018",
+            "bibtex": "@inproceedings{MonteiroEtAl2018bbwai,\n\tauthor = {Monteiro, Juarez and Granada, Roger and Pinto, Rafael and Barros, Rodrigo C.},\n\ttitle = {Beating Bomberman with Artificial Intelligence},\n\tbooktitle = {Anais do XV Encontro Nacional de Inteligência Artificial e Computacional},\n\turl = {http://portaldeconteudo.sbc.org.br/index.php/eniac/article/view/4430},\n\tyear = 2018,\n\tpages = {353--364}\n}",
+            "pdf": "http://portaldeconteudo.sbc.org.br/index.php/eniac/article/view/4430"
+        },
+        {
+            "title": "Using Scene Context to Improve Action Recognition",
+            "authors": "Monteiro, Juarez; Granada, Roger; Meneguzzi, Felipe R.; Barros, Rodrigo C.",
+            "conference": "In Proceedings of the 23rd Iberoamerican Congress on Pattern Recognition",
+            "year": "CIARP 2018",
+            "bibtex": "@inproceedings{MonteiroEtAl2018usctiar,\n\tauthor = {Monteiro, Juarez and Granada, Roger and Meneguzzi, Felipe R. and Barros, Rodrigo C.},\n\ttitle = {Using Scene Context to Improve Action Recognition},\n\tbooktitle = {Proceedings of the 23rd Iberoamerican Congress on Pattern Recognition},\n\turl = {http://doi.org/10.1007/978-3-030-13469-3_110},\n\tyear = 2018\n}",
+            "pdf": "http://doi.org/10.1007/978-3-030-13469-3_110"
+        },
+        {
+            "title": "A Deep Neural Architecture for Kitchen Activity Recognition",
+            "authors": "Granada, Roger; Monteiro, Juarez; Barros, Rodrigo C.; Meneguzzi, Felipe R.",
+            "conference": "In Proceedings of the International Florida Artificial Intelligence Research Society Conference",
+            "year": "FLAIRS 2017",
+            "bibtex": "@inproceedings{GranadaEtAl2017adnafkar,\n\tauthor = {Granada, Roger and Monteiro, Juarez and Barros, Rodrigo C. and Meneguzzi, Felipe R.},\n\ttitle = {A Deep Neural Architecture for Kitchen Activity Recognition},\n\tbooktitle = {Proceedings of the International Florida Artificial Intelligence Research Society Conference},\n\tyear = 2017,\n\tpages = {56--61},\n\turl = {http://aaai.org/ocs/index.php/FLAIRS/FLAIRS17/paper/view/15411}\n}",
+            "pdf": "http://aaai.org/ocs/index.php/FLAIRS/FLAIRS17/paper/view/15411"
+        },
+        {
+            "title": "Virtual Guide Dog: An Application to Support Visually-Impaired People Through Deep Convolutional Neural Networks",
+            "authors": "Monteiro, Juarez; Aires, João P.S.; Granada, Roger; Barros, Rodrigo C.; Meneguzzi, Felipe R.",
+            "conference": "In Proceedings of the 2017 International Joint Conference on Neural Networks",
+            "year": "IJCNN 2017",
+            "bibtex": "@inproceedings{MonteiroEtAl2017vgdaastsviptdcnn,\n\tauthor = {Monteiro, Juarez and Aires, João P.S. and Granada, Roger and Barros, Rodrigo C. and Meneguzzi, Felipe R.},\n\ttitle = {Virtual Guide Dog: An Application to Support Visually-Impaired People Through Deep Convolutional Neural Networks},\n\tbooktitle = {Proceedings of the 2017 International Joint Conference on Neural Networks},\n\tyear = 2017,\n\tpages = {2267--2274},\n\turl = {http://doi.org/10.1109/IJCNN.2017.7966130}\n}",
+            "pdf": "http://doi.org/10.1109/IJCNN.2017.7966130"
+        },
+        {
+            "title": "Deep Neural Networks for Kitchen Activity Recognition",
+            "authors": "Monteiro, Juarez; Granada, Roger; Barros, Rodrigo C.; Meneguzzi, Felipe",
+            "conference": "In Proceedings of the 2017 International Joint Conference on Neural Networks",
+            "year": "IJCNN 2017",
+            "bibtex": "@inproceedings{MonteiroEtAl2017dnnfkar,\n\tauthor = {Monteiro, Juarez and Granada, Roger and Barros, Rodrigo C. and Meneguzzi, Felipe},\n\ttitle = {Deep Neural Networks for Kitchen Activity Recognition},\n\tbooktitle = {Proceedings of the 2017 International Joint Conference on Neural Networks},\n\tyear = 2017,\n\tpages = {2048--2055},\n\turl = {http://doi.org/10.1109/IJCNN.2017.7966102}\n}",
+            "pdf": "http://doi.org/10.1109/IJCNN.2017.7966102"
+        },
+        {
+            "title": "Deep Neural Networks for Handwritten Chinese Character Recognition",
+            "authors": "Maidana, Renan; Monteiro, Juarez; Granada, Roger; Amory, Alexandre; Barros, Rodrigo C.",
+            "conference": "In Proceedings of the 2017 Brazilian Conference on Intelligent Systems",
+            "year": "BRACIS 2017",
+            "bibtex": "@inproceedings{MaidanaEtAl2017dnnfhccr,\n\tauthor = {Maidana, Renan and Monteiro, Juarez and Granada, Roger and Amory, Alexandre and Barros, Rodrigo C.},\n\ttitle = {Deep Neural Networks for Handwritten Chinese Character Recognition},\n\tbooktitle = {Proceedings of the 2017 Brazilian Conference on Intelligent Systems},\n\tyear = 2017,\n\tpages = {192--200},\n\turl = {http://ieeexplore.ieee.org/document/8247052}\n}",
+            "pdf": "http://ieeexplore.ieee.org/document/8247052"
+        },
+        {
+            "title": "Using Scene Context to Improve Object Recognition",
+            "authors": "Silva, Leandro P.; Granada, Roger; Monteiro, Juarez; Ruiz, Duncan",
+            "conference": "In: Proceedings of the 5th Symposium on Knowledge Discovery, Mining and Learning",
+            "year": "KDMiLe 2017",
+            "bibtex": "@inproceedings{SilvaEtAl2017usctior,\n\tauthor = {Silva, Leandro P. and Granada, Roger and Monteiro, Juarez and Ruiz, Duncan},\n\ttitle = {Using Scene Context to Improve Object Recognition},\n\tbooktitle = {Proceedings of the 5th Symposium on Knowledge Discovery, Mining and Learning},\n\tyear = 2017,\n\tpages = {105--112},\n\turl = {http://www.facom.ufu.br/~kdmile/proceedings/anais-kdmile-2017.pdf}\n}",
+            "pdf": "http://www.facom.ufu.br/~kdmile/proceedings/anais-kdmile-2017.pdf"
+        },
+        {
+            "title": "Improving Activity Recognition using Temporal Regions",
+            "authors": "Aires, João P.S.; Monteiro, Juarez; Granada, Roger; Meneguzzi, Felipe R.; Barros, Rodrigo C.",
+            "conference": "In Proceedings of the 5th Symposium on Knowledge Discovery, Mining and Learning",
+            "year": "KDMiLe 2017",
+            "bibtex": "@inproceedings{AiresEtAl2017iartur,\n\tauthor = {Aires, João P.S. and Monteiro, Juarez and Granada, Roger and Meneguzzi, Felipe R. and Barros, Rodrigo C.},\n\ttitle = {Improving Activity Recognition using Temporal Regions},\n\tbooktitle = {Proceedings of the 5th Symposium on Knowledge Discovery, Mining and Learning},\n\tyear = 2017,\n\tpages = {89--96},\n\turl = {http://www.facom.ufu.br/~kdmile/proceedings/anais-kdmile-2017.pdf}\n}",
+            "pdf": "http://www.facom.ufu.br/~kdmile/proceedings/anais-kdmile-2017.pdf"
+        },
+        {
+            "title": "Temporal Regions for Activity Recognition",
+            "authors": "Aires, João P.S.; Monteiro, Juarez; Granada, Roger; Barros, Rodrigo C.; Meneguzzi, Felipe R.",
+            "conference": "In Proceedings of the 26th International Conference on Artificial Neural Networks",
+            "year": "ICANN 2017",
+            "bibtex": "@inproceedings{AiresEtAl2017trfar,\n\tauthor = {Aires, João P.S. and Monteiro, Juarez and Granada, Roger and Barros, Rodrigo C. and Meneguzzi, Felipe R.},\n\ttitle = {Temporal Regions for Activity Recognition},\n\tbooktitle = {Proceedings of the 26th International Conference on Artificial Neural Networks},\n\tyear = 2017,\n\tpages = {424},\n\turl = {http://doi.org/10.1007/978-3-319-68600-4}\n}",
+            "pdf": "http://doi.org/10.1007/978-3-319-68600-4"
+        }
+    ]
+}
