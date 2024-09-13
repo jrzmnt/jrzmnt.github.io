@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4ce7159a.css",
+    "main.js": "/static/js/main.48e61aa4.js",
+    "static/js/453.7b59c3ba.chunk.js": "/static/js/453.7b59c3ba.chunk.js",
+    "static/media/dissertation.pdf": "/static/media/dissertation.b1af4a333403247629da.pdf",
+    "static/media/thesis.pdf": "/static/media/thesis.135ecd859641f26c6c80.pdf",
+    "static/media/final_project.pdf": "/static/media/final_project.9e53f4f66d463e589c27.pdf",
+    "static/media/photo.jpg": "/static/media/photo.f35c3b471c6e6afa95f9.jpg",
+    "index.html": "/index.html",
+    "main.4ce7159a.css.map": "/static/css/main.4ce7159a.css.map",
+    "main.48e61aa4.js.map": "/static/js/main.48e61aa4.js.map",
+    "453.7b59c3ba.chunk.js.map": "/static/js/453.7b59c3ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4ce7159a.css",
+    "static/js/main.48e61aa4.js"
+  ]
+}
