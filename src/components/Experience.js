@@ -11,7 +11,7 @@ function Experience() {
           <li>
             <h4>AI Researcher and Data Scientist</h4>
             <p>Dell Technologies</p>
-            <p>Jul 2023 - Present</p>
+            <p>Sep. 2023 - Present</p>
           </li>
           <li>
             <h4>Data Scientist</h4>
