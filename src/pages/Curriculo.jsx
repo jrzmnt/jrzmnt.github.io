@@ -18,12 +18,6 @@ export default function Curriculo() {
     <>
       <div className="no-print flex flex-wrap items-center justify-between gap-4">
         <h1 className="text-4xl font-bold tracking-tight">{t('curriculo')}</h1>
-        <button
-          onClick={() => window.print()}
-          className="rounded-full bg-neutral-900 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200"
-        >
-          {t('baixarPdf')}
-        </button>
       </div>
 
       <Reveal>

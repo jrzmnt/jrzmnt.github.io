@@ -85,12 +85,12 @@ export const experienciaIndustria = [
   {
     cargo: { en: 'AI Researcher', pt: 'Pesquisador de IA' },
     empresa: 'Kunumi Institute',
-    periodo: { en: '2025 – present', pt: '2025 – atual' },
+    periodo: { en: 'Nov 2025 – present', pt: 'nov. 2025 – atual' },
   },
   {
     cargo: { en: 'AI Researcher and Data Scientist', pt: 'Pesquisador de IA e Cientista de Dados' },
     empresa: 'Dell Technologies',
-    periodo: { en: 'Jul 2023 – present', pt: 'jul. 2023 – atual' },
+    periodo: { en: 'Jul 2023 – Nov 2025', pt: 'jul. 2023 – nov. 2025' },
   },
   {
     cargo: { en: 'Data Scientist', pt: 'Cientista de Dados' },
