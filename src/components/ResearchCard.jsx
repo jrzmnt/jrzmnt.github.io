@@ -117,7 +117,17 @@ export default function ResearchCard({ pesquisa }) {
       <div className="relative flex min-w-0 flex-1 flex-col">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
-            <p className="font-display text-4xl leading-none tracking-tight">{pesquisa.ano ?? t('projeto')}</p>
+            <p className="flex items-center gap-2 font-display text-4xl leading-none tracking-tight">
+              {pesquisa.ano ?? t('projeto')}
+              {pesquisa.premio && (
+                <span title={pesquisa.premio} aria-label={pesquisa.premio} className="inline-flex text-amber-500">
+                  <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="9" r="6" />
+                    <path d="M8.5 14 7 22l5-2.5L17 22l-1.5-8" />
+                  </svg>
+                </span>
+              )}
+            </p>
             {venue && <p className="mt-2 text-base font-medium text-neutral-700 dark:text-neutral-300">{venue}</p>}
           </div>
           {textos.status && <StatusBadge status={textos.status} projeto={pesquisa.projeto} />}

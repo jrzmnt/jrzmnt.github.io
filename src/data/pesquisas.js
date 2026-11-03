@@ -113,6 +113,7 @@ const curadas = [
   },
   {
     slug: 'datasynk-lxai',
+    imagem: '/papers/datasynk-lxai.png',
     temas: ['Tabular FMs', 'Healthcare'],
     ano: 2026,
     venue: { en: 'LXAI @ ICML 2026', pt: 'LXAI @ ICML 2026' },
@@ -138,6 +139,7 @@ const curadas = [
   },
   {
     slug: 'snokind-lxai',
+    imagem: '/papers/snokind-lxai.png',
     temas: ['LLMs', 'Healthcare'],
     ano: 2026,
     venue: { en: 'LXAI @ ICML 2026', pt: 'LXAI @ ICML 2026' },
@@ -295,6 +297,11 @@ const curadas = [
 
 const slugify = (texto) => texto.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 
+// Prêmios de artigos, mostrados como medalha ao lado do ano no card.
+const premiosPorArtigo = {
+  '2017-virtual-guide-dog-an-application-to-support-visually-impaired-people-through-deep-convolutional': 'Best Paper',
+}
+
 // Publicações sem página curada entram só com metadados, para que todo o histórico apareça.
 function montarCatalogo(entradas) {
   const usadas = new Set()
@@ -318,6 +325,7 @@ function montarCatalogo(entradas) {
         publico: true,
         projeto: false,
         temas: temasPorArtigo[slug] ?? gerado?.temas ?? [],
+        premio: premiosPorArtigo[slug],
         autores: pub.authors,
         imagens: [],
         videos: [],

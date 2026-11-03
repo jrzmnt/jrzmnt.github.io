@@ -1523,5 +1523,239 @@ export const resumos = {
       ]
     },
     "imagem": "/papers/2022-how-resilient-are-imitation-learning-methods-to-sub-optimal-experts.png"
+  },
+  "datasynk-lxai": {
+    "slug": "datasynk-lxai",
+    "temas": [
+      "Tabular FMs",
+      "Healthcare"
+    ],
+    "links": [],
+    "en": {
+      "contexto": [
+        "Electronic health records (EHRs) are scarce for many clinical AI projects, especially in public hospitals in the Global South. Synthetic data can fill the gap, but only if the generated records are clinically plausible, not only statistically similar to the real ones. A table can match every column's distribution and still contain impossible combinations of diagnoses.",
+        "Tabular foundation models, such as TabPFN, are pre-trained on synthetic tables, so the quality of those tables matters. Bayesian networks are a small-data option because they encode a structure, but standard structure learning finds statistical associations, which need not be medically meaningful."
+      ],
+      "ideia": [
+        "The paper argues that statistical fidelity and clinical validity measure different things, and that a good synthetic dataset needs both. DataSynK combines a prior knowledge graph built from medical ontologies, constrained causal discovery, Bayesian-network sampling, and symbolic clinical rules. The generated records must follow clinically admissible relations.",
+        "An analogy: a recipe generator that learns from real recipes but only proposes combinations where each ingredient is connected to the others through a plausible cooking step. A dish can look like the real ones on paper and still be impossible to cook."
+      ],
+      "algoritmos": [
+        "Step 1, causal tiers: clinical features are sorted into causal tiers (Table 1 of the paper), which restricts which variables can influence which. Edges that break the tiers are rejected.",
+        "Step 2, causal discovery and sampling: constrained causal discovery learns the dependencies, a Bayesian network is fitted to them, and symbolic rules in Answer Set Programming reject records that violate clinical constraints.",
+        "Step 3, ONTO.VAL: a new metric checks whether every pair of active features in a record is connected by at least one clinically admissible path in the knowledge graph. The score is the fraction of valid records, and it works for any generator."
+      ],
+      "resultados": [
+        "In the benchmark on Brazilian public-hospital cohorts for acute myocardial infarction and stroke, DataSynK reaches the highest downstream F1 among the methods that do not collapse (+0.093, against +0.069 for TVAE and +0.040 for SDV), so the classifiers trained on its data are more balanced. Its ONTO.VAL is 0.089, the highest in the table, while the statistical fidelity metrics remain competitive.",
+        "The paper's central claim is that statistical fidelity and structural validity are complementary. Several well-known generators match the marginal distributions well but score zero on ONTO.VAL, which is exactly the gap that the paper is trying to expose."
+      ],
+      "limitacoes": [
+        "The evaluation uses two clinical subgroups from one country, and the sample sizes are small. The authors discuss sensitivity to the DAG sparsity threshold and report a single-cohort analysis. Privacy metrics show a trade-off that needs to be examined before clinical use. Clinical validation by specialists is not part of this study."
+      ],
+      "tabelas": [
+        {
+          "titulo": "Benchmark on the Brazilian EHR cohorts (selected methods)",
+          "colunas": [
+            "Method",
+            "TVD ↓",
+            "|AUC| ↓",
+            "F1 ↑",
+            "Onto.Val ↑"
+          ],
+          "linhas": [
+            [
+              "CTGAN",
+              "0.009",
+              "0.017",
+              "+0.013",
+              "0.062"
+            ],
+            [
+              "TVAE",
+              "0.023",
+              "0.014",
+              "+0.069",
+              "0.038"
+            ],
+            [
+              "SDV",
+              "0.015",
+              "0.040",
+              "+0.040",
+              "0.052"
+            ],
+            [
+              "DataSynK (this paper)",
+              "0.018",
+              "0.091",
+              "+0.093",
+              "0.089"
+            ]
+          ]
+        }
+      ]
+    },
+    "pt": {
+      "contexto": [
+        "Prontuários eletrônicos (EHR) são escassos em muitos projetos de IA clínica, especialmente em hospitais públicos do Sul Global. Dados sintéticos podem preencher essa lacuna, mas só se os registros gerados forem clinicamente plausíveis, e não apenas parecidos estatisticamente com os reais. Uma tabela pode reproduzir a distribuição de cada coluna e ainda conter combinações impossíveis de diagnósticos.",
+        "Modelos fundacionais tabulares, como o TabPFN, são pré-treinados com tabelas sintéticas, então a qualidade dessas tabelas importa. Redes bayesianas são uma opção para poucos dados, porque codificam uma estrutura, mas o aprendizado de estrutura padrão encontra associações estatísticas, que não necessariamente têm sentido médico."
+      ],
+      "ideia": [
+        "O artigo defende que fidelidade estatística e validade clínica medem coisas diferentes, e que um bom conjunto de dados sintéticos precisa das duas. O DataSynK combina um grafo de conhecimento prévio construído a partir de ontologias médicas, descoberta causal restrita, amostragem por rede bayesiana e regras simbólicas clínicas. Os registros gerados precisam seguir relações clinicamente admissíveis.",
+        "Uma analogia: um gerador de receitas que aprende com receitas reais, mas só propõe combinações em que cada ingrediente se liga aos outros por um passo de preparo plausível. Um prato pode parecer com os reais no papel e, mesmo assim, ser impossível de cozinhar."
+      ],
+      "algoritmos": [
+        "Passo 1, níveis causais: as variáveis clínicas são organizadas em níveis causais (Tabela 1 do artigo), o que restringe quais variáveis podem influenciar quais. Arestas que quebram os níveis são rejeitadas.",
+        "Passo 2, descoberta causal e amostragem: a descoberta causal restrita aprende as dependências, uma rede bayesiana é ajustada a elas, e regras simbólicas em Answer Set Programming rejeitam registros que violam restrições clínicas.",
+        "Passo 3, ONTO.VAL: uma nova métrica verifica se cada par de variáveis ativas de um registro está ligado por pelo menos um caminho clinicamente admissível no grafo de conhecimento. O escore é a fração de registros válidos, e ela funciona para qualquer gerador."
+      ],
+      "resultados": [
+        "No benchmark com coortes de hospitais públicos brasileiros, para infarto agudo do miocárdio e AVC, o DataSynK alcança o maior F1 entre os métodos que não colapsam (+0,093, contra +0,069 do TVAE e +0,040 do SDV), então os classificadores treinados com seus dados ficam mais equilibrados. Seu ONTO.VAL é 0,089, o maior da tabela, enquanto as métricas de fidelidade estatística continuam competitivas.",
+        "A tese central do artigo é que fidelidade estatística e validade estrutural são complementares. Vários geradores conhecidos reproduzem bem as distribuições marginais, mas têm ONTO.VAL zero, e é exatamente essa lacuna que o artigo expõe."
+      ],
+      "limitacoes": [
+        "A avaliação usa dois subgrupos clínicos de um único país, com amostras pequenas. Os autores discutem a sensibilidade ao limiar de esparsidade do grafo causal e apresentam uma análise de coorte única. As métricas de privacidade mostram um compromisso que precisa ser examinado antes de qualquer uso clínico. A validação clínica por especialistas não faz parte deste estudo."
+      ],
+      "tabelas": [
+        {
+          "titulo": "Benchmark nas coortes de prontuários brasileiros (métodos selecionados)",
+          "colunas": [
+            "Método",
+            "TVD ↓",
+            "|AUC| ↓",
+            "F1 ↑",
+            "Onto.Val ↑"
+          ],
+          "linhas": [
+            [
+              "CTGAN",
+              "0,009",
+              "0,017",
+              "+0,013",
+              "0,062"
+            ],
+            [
+              "TVAE",
+              "0,023",
+              "0,014",
+              "+0,069",
+              "0,038"
+            ],
+            [
+              "SDV",
+              "0,015",
+              "0,040",
+              "+0,040",
+              "0,052"
+            ],
+            [
+              "DataSynK (este artigo)",
+              "0,018",
+              "0,091",
+              "+0,093",
+              "0,089"
+            ]
+          ]
+        }
+      ]
+    },
+    "imagem": "/papers/datasynk-lxai.png"
+  },
+  "snokind-lxai": {
+    "slug": "snokind-lxai",
+    "temas": [
+      "LLMs",
+      "Healthcare"
+    ],
+    "links": [],
+    "en": {
+      "contexto": [
+        "Clinical notes are written in free text, but hospital systems need standard codes. SNOMED CT is the largest standard terminology for clinical concepts, and each concept has a numeric identifier (CID). Mapping a free-text mention like 'pericardial effusion' to its CID enables interoperability, reporting, and research. For Portuguese there was no automated system for this mapping, and most existing approaches are either rule-based (English-only) or rely on large language models, which can produce invalid codes and behave differently from run to run.",
+        "A hybrid cascade is a pipeline in which cheap, deterministic steps run first, and expensive or stochastic steps run only on the cases the first steps could not solve."
+      ],
+      "ideia": [
+        "The paper proposes SNOKind, a cost-aware pipeline for SNOMED CT concept assignment in Brazilian Portuguese. Deterministic heuristic rules resolve most mentions cheaply and transparently. Embedding similarity handles many of the rest, and a language model reasons only over the ambiguous cases that remain.",
+        "An analogy: a triage desk in a hospital. Most patients are routed by a checklist, a few by a nurse's judgment, and only the hardest cases reach the specialist. The order matters, because it decides how often the expensive specialist is needed."
+      ],
+      "algoritmos": [
+        "Step 1, entity extraction: a language model extracts the clinical entities from the EHR text, which is a named-entity recognition step.",
+        "Step 2, resolution cascade: each entity goes through the stages in order. Heuristic rules map the easy cases. Embedding similarity, computed with a text-embedding model against SNOMED CT terms, resolves the next group. An LLM handles the remaining ambiguous entities.",
+        "Step 3, ordering analysis: three orderings are compared: rules then embeddings then LLM, embeddings then rules then LLM, and LLM first. The paper measures coverage, LLM workload, and how often the stochastic model is exposed."
+      ],
+      "resultados": [
+        "On 100 ICU records from a Brazilian public hospital, the LLM-only baseline resolves 57% of the mentions to valid concept IDs and leaves 43% unresolved. The SNOKind pipeline reaches 92% resolution.",
+        "All three orderings reach similar coverage (92%, 91% and 92%), so the ordering does not change accuracy much. It changes cost and reliability: when rules or embeddings go first, the LLM processes as little as 14% of the entities, and fewer entities are exposed to the stochastic model."
+      ],
+      "limitacoes": [
+        "The evaluation uses 100 ICU records from one hospital, and the paper does not report precision against expert-annotated gold labels. The results depend on GPT-5 and the embedding model used, although the authors state the design is model-agnostic. The approach needs validation on other hospitals and clinical specialties."
+      ],
+      "tabelas": [
+        {
+          "titulo": "Resolution of clinical mentions to SNOMED CT concepts",
+          "colunas": [
+            "Method",
+            "Resolved to valid CID (%)",
+            "Unresolved (%)"
+          ],
+          "linhas": [
+            [
+              "LLM only",
+              "57",
+              "43"
+            ],
+            [
+              "SNOKind (rules → embeddings → LLM)",
+              "92",
+              "8"
+            ]
+          ]
+        }
+      ]
+    },
+    "pt": {
+      "contexto": [
+        "Notas clínicas são escritas em texto livre, mas os sistemas hospitalares precisam de códigos padronizados. O SNOMED CT é a maior terminologia padronizada de conceitos clínicos, e cada conceito tem um identificador numérico (CID). Mapear uma menção em texto livre, como 'derrame pericárdico', para o seu CID permite interoperabilidade, relatórios e pesquisa. Para o português não havia um sistema automatizado para esse mapeamento, e as abordagens existentes são baseadas em regras (só para inglês) ou dependem de modelos de linguagem grandes, que podem gerar códigos inválidos e se comportar de forma diferente a cada execução.",
+        "Uma cascata híbrida é um pipeline em que etapas baratas e determinísticas rodam primeiro, e etapas caras ou estocásticas rodam só nos casos que as primeiras não resolveram."
+      ],
+      "ideia": [
+        "O artigo propõe o SNOKind, um pipeline sensível ao custo para atribuição de conceitos SNOMED CT em português brasileiro. Regras heurísticas determinísticas resolvem a maior parte das menções de forma barata e transparente. A similaridade de embeddings cuida de muitas das restantes, e um modelo de linguagem raciocina apenas sobre os casos ambíguos que sobram.",
+        "Uma analogia: a triagem de um hospital. A maioria dos pacientes é encaminhada por uma lista de verificação, alguns pelo julgamento de uma enfermeira, e só os casos mais difíceis chegam ao especialista. A ordem importa, porque define com que frequência o especialista caro é necessário."
+      ],
+      "algoritmos": [
+        "Passo 1, extração de entidades: um modelo de linguagem extrai as entidades clínicas do texto do prontuário, em uma etapa de reconhecimento de entidades nomeadas.",
+        "Passo 2, cascata de resolução: cada entidade passa pelas etapas na ordem definida. Regras heurísticas resolvem os casos fáceis. A similaridade de embeddings, calculada com um modelo de embeddings de texto contra os termos do SNOMED CT, resolve o grupo seguinte. Um LLM trata as entidades ambíguas que restam.",
+        "Passo 3, análise de ordem: três ordens são comparadas: regras, depois embeddings, depois LLM; embeddings, depois regras, depois LLM; e LLM primeiro. O artigo mede a cobertura, a carga de uso do LLM e com que frequência o modelo estocástico é acionado."
+      ],
+      "resultados": [
+        "Em 100 registros de UTI de um hospital público brasileiro, o LLM sozinho resolve 57% das menções para CIDs válidos e deixa 43% sem resolução. O pipeline SNOKind chega a 92% de resolução.",
+        "As três ordens alcançam cobertura parecida (92%, 91% e 92%), então a ordem não muda muito a acurácia. Ela muda o custo e a confiabilidade: quando regras ou embeddings vêm primeiro, o LLM processa só 14% das entidades, e menos entidades ficam expostas ao modelo estocástico."
+      ],
+      "limitacoes": [
+        "A avaliação usa 100 registros de UTI de um único hospital, e o artigo não reporta precisão contra rótulos-ouro anotados por especialistas. Os resultados dependem do GPT-5 e do modelo de embeddings usados, embora os autores afirmem que o desenho é independente de modelo. A abordagem precisa ser validada em outros hospitais e especialidades."
+      ],
+      "tabelas": [
+        {
+          "titulo": "Resolução de menções clínicas para conceitos do SNOMED CT",
+          "colunas": [
+            "Método",
+            "Resolvido para CID válido (%)",
+            "Sem resolução (%)"
+          ],
+          "linhas": [
+            [
+              "Somente LLM",
+              "57",
+              "43"
+            ],
+            [
+              "SNOKind (regras → embeddings → LLM)",
+              "92",
+              "8"
+            ]
+          ]
+        }
+      ]
+    },
+    "imagem": "/papers/snokind-lxai.png"
   }
 }

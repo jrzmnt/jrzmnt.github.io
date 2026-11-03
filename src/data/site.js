@@ -54,6 +54,10 @@ export const formacao = [
   },
   {
     grau: { en: 'M.Sc. in Computer Science', pt: 'Mestrado em Ciência da Computação' },
+    premio: {
+      en: '2nd best Master’s dissertation in Artificial Intelligence in Brazil (CTDIAC-BRACIS 2018)',
+      pt: '2ª melhor dissertação de mestrado em Inteligência Artificial do Brasil (CTDIAC-BRACIS 2018)',
+    },
     instituicao: {
       en: 'PUCRS, Pontifical Catholic University of Rio Grande do Sul',
       pt: 'PUCRS, Pontifícia Universidade Católica do Rio Grande do Sul',
@@ -78,6 +82,11 @@ export const formacao = [
 ]
 
 export const experienciaIndustria = [
+  {
+    cargo: { en: 'AI Researcher', pt: 'Pesquisador de IA' },
+    empresa: 'Kunumi Institute',
+    periodo: { en: '2025 – present', pt: '2025 – atual' },
+  },
   {
     cargo: { en: 'AI Researcher and Data Scientist', pt: 'Pesquisador de IA e Cientista de Dados' },
     empresa: 'Dell Technologies',

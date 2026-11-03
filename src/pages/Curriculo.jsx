@@ -40,7 +40,18 @@ export default function Curriculo() {
           <ul className="space-y-6">
             {formacao.map((item) => (
               <li key={item.grau[idioma]}>
-                <p className="font-medium">{item.grau[idioma]}</p>
+                <p className="flex items-center gap-2 font-medium">
+                  {item.grau[idioma]}
+                  {item.premio && (
+                    <span title={item.premio[idioma]} aria-label={item.premio[idioma]} className="inline-flex text-neutral-400">
+                      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="9" r="6" />
+                        <path d="M8.5 14 7 22l5-2.5L17 22l-1.5-8" />
+                      </svg>
+                    </span>
+                  )}
+                </p>
+                {item.premio && <p className="text-sm text-neutral-500 dark:text-neutral-400">{item.premio[idioma]}</p>}
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">{item.instituicao[idioma]}</p>
                 <p className="text-sm text-neutral-500 dark:text-neutral-500">{item.periodo[idioma]}</p>
                 {item.tese && (
