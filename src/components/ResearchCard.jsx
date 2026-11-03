@@ -3,7 +3,7 @@ import { useIdioma } from '../i18n.jsx'
 import { conteudo } from '../data/conteudo.js'
 
 const TEMAS_NO_CARD = 3
-const RECURSOS = { pdf: 'linkPdf', codigo: 'linkCodigo', arxiv: 'linkArxiv', doi: 'linkDoi' }
+const RECURSOS = { pdf: 'linkPdf', codigo: 'linkCodigo', arxiv: 'linkArxiv', doi: 'linkDoi', editor: 'linkEditor' }
 
 // Cada tema recebe sempre a mesma cor, escolhida pelo nome. As classes ficam escritas por extenso para o Tailwind encontrá-las.
 const PALETA = [

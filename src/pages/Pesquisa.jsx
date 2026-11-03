@@ -5,8 +5,9 @@ import { useIdioma } from '../i18n.jsx'
 import VideoEmbed from '../components/VideoEmbed.jsx'
 import Reveal from '../components/Reveal.jsx'
 import { StatusBadge, TemaBadge } from '../components/ResearchCard.jsx'
+import CopiarLink from '../components/CopiarLink.jsx'
 
-const RECURSOS = { pdf: 'linkPdf', codigo: 'linkCodigo', arxiv: 'linkArxiv', doi: 'linkDoi' }
+const RECURSOS = { pdf: 'linkPdf', codigo: 'linkCodigo', arxiv: 'linkArxiv', doi: 'linkDoi', editor: 'linkEditor' }
 
 export default function Pesquisa() {
   const { idioma, t } = useIdioma()
@@ -67,6 +68,9 @@ export default function Pesquisa() {
             ))}
           </div>
         )}
+        <div className="animar-entrada mt-4 [animation-delay:340ms]">
+          <CopiarLink />
+        </div>
       </header>
 
       <div className="mt-12 grid gap-12 md:grid-cols-[1fr_260px] md:items-start">

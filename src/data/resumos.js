@@ -6,11 +6,121 @@ export const resumos = {
       "Computer Vision",
       "Deep Learning"
     ],
-    "links": [],
-    "en": null,
-    "pt": null,
-    "semPdf": true,
-    "imagem": null
+    "links": [
+      {
+        "tipo": "pdf",
+        "href": "https://www.meneguzzi.eu/felipe/pubs/flairs-hybrid-recognizer-2017.pdf"
+      }
+    ],
+    "en": {
+      "contexto": [
+        "Recognizing what someone is doing in a kitchen is useful for assistive applications. If a system fails to identify the activity, the user loses trust and stops using it. The challenge is that similar cooking actions share the same objects and the same region of the frame, so a model needs to capture how things move, not only what they look like.",
+        "Two inputs carry complementary information. RGB frames show appearance. Optical flow shows motion, the displacement of each pixel between consecutive frames. A convolutional neural network can learn from either one, and fusing the two gives the model both views."
+      ],
+      "ideia": [
+        "The paper proposes a deep architecture for kitchen activity recognition in a fixed-camera setting. One CNN learns from RGB frames and another from optical flow, and their outputs are fused. The fusion stage is where most of the design choices are made.",
+        "An analogy: two observers watch the same kitchen, one looking at the scene and one tracking the movement. A third person listens to both and decides what is going on, using the reports of both."
+      ],
+      "algoritmos": [
+        "Step 1, inputs: the video frames are used as RGB images, and dense optical flow is computed between consecutive frames to produce a second input stream.",
+        "Step 2, networks: a GoogLeNet is trained on the RGB frames and another on the optical flow. The networks learn the features and produce a probability for each class per frame.",
+        "Step 3, fusion: the probabilities are combined in three ways. A mean averages them. A support vector machine (SVM) classifies the stacked probabilities. A neural network (NN) learns how to weigh the two networks, and it performs best.",
+        "Step 4, smoothing: following Bansal et al., a sliding window replaces each frame's label with the majority label around it, which removes short misclassifications that would otherwise break an activity into fragments."
+      ],
+      "resultados": [
+        "The neural-network fusion reaches 72.6% global accuracy on the KSCGR dataset and is the best method in 5 of the 9 activities. The RGB network alone reaches 68.9% and the optical flow network alone 63.1%, so the combination gives a clear gain.",
+        "Compared with the hand-crafted features of Bansal et al., which reach 64% accuracy and 72% with smoothing, the NN fusion is better before smoothing. The extended IJCNN 2017 version of this work, which uses three CNNs, reaches 78.5% accuracy."
+      ],
+      "limitacoes": [
+        "The Turning activity is almost never recognized by the fused models, and the paper attributes the confusion between activities that share the same region and objects to the frame-by-frame nature of the method. The results come from a single dataset with a fixed camera. The paper leaves temporal modeling to future work."
+      ],
+      "tabelas": [
+        {
+          "titulo": "Global accuracy on the KSCGR dataset",
+          "colunas": [
+            "Approach",
+            "Accuracy"
+          ],
+          "linhas": [
+            [
+              "Hand-crafted features (Bansal et al.)",
+              "0.64"
+            ],
+            [
+              "Hand-crafted features + smoothing (Bansal et al.)",
+              "0.72"
+            ],
+            [
+              "RGB network",
+              "0.69"
+            ],
+            [
+              "Optical flow network",
+              "0.63"
+            ],
+            [
+              "Fusion by neural network (this paper)",
+              "0.726"
+            ]
+          ]
+        }
+      ]
+    },
+    "pt": {
+      "contexto": [
+        "Reconhecer o que alguém faz numa cozinha é útil para aplicações assistivas. Se o sistema não identifica a atividade, o usuário perde a confiança e para de usar. O desafio é que ações de cozinha parecidas compartilham os mesmos objetos e a mesma região do quadro, então o modelo precisa capturar como as coisas se movem, e não só como elas se parecem.",
+        "Duas entradas trazem informações complementares. Os quadros RGB mostram a aparência. O fluxo óptico mostra o movimento, o deslocamento de cada pixel entre quadros consecutivos. Uma rede neural convolucional pode aprender a partir de qualquer uma delas, e a fusão das duas dá ao modelo as duas visões."
+      ],
+      "ideia": [
+        "O artigo propõe uma arquitetura profunda para reconhecimento de atividades de cozinha, com câmera fixa. Uma CNN aprende a partir dos quadros RGB e outra a partir do fluxo óptico, e as saídas são fundidas. A etapa de fusão é onde se concentram as principais escolhas de projeto.",
+        "Uma analogia: dois observadores acompanham a mesma cozinha, um olhando a cena e outro acompanhando o movimento. Uma terceira pessoa ouve os dois relatórios e decide o que está acontecendo."
+      ],
+      "algoritmos": [
+        "Passo 1, entradas: os quadros de vídeo são usados como imagens RGB, e o fluxo óptico denso é calculado entre quadros consecutivos para gerar um segundo fluxo de entrada.",
+        "Passo 2, redes: uma GoogLeNet é treinada nos quadros RGB e outra no fluxo óptico. As redes aprendem as características e produzem uma probabilidade para cada classe em cada quadro.",
+        "Passo 3, fusão: as probabilidades são combinadas de três formas. Uma média as calcula. Uma máquina de vetores de suporte (SVM) classifica as probabilidades empilhadas. Uma rede neural (NN) aprende o peso de cada rede, e é a que tem o melhor desempenho.",
+        "Passo 4, suavização: seguindo Bansal et al., uma janela deslizante troca o rótulo de cada quadro pelo rótulo majoritário ao redor dele, o que remove erros curtos que, de outro modo, quebrariam uma atividade em fragmentos."
+      ],
+      "resultados": [
+        "A fusão por rede neural alcança 72,6% de acurácia global no conjunto KSCGR e é o melhor método em 5 das 9 atividades. A rede só com RGB chega a 68,9%, e a só com fluxo óptico a 63,1%, então a combinação traz um ganho claro.",
+        "Comparada com as características construídas à mão de Bansal et al., que chegam a 64% de acurácia e a 72% com suavização, a fusão por rede neural é melhor antes da suavização. A versão estendida deste trabalho, publicada no IJCNN 2017 com três CNNs, alcança 78,5%."
+      ],
+      "limitacoes": [
+        "A atividade Turning quase nunca é reconhecida pelos modelos fundidos, e o artigo atribui a confusão entre atividades que compartilham a mesma região e os mesmos objetos à natureza quadro a quadro do método. Os resultados vêm de um único conjunto de dados, com câmera fixa. A modelagem temporal fica para trabalhos futuros."
+      ],
+      "tabelas": [
+        {
+          "titulo": "Acurácia global no conjunto KSCGR",
+          "colunas": [
+            "Abordagem",
+            "Acurácia"
+          ],
+          "linhas": [
+            [
+              "Características construídas à mão (Bansal et al.)",
+              "0,64"
+            ],
+            [
+              "Características à mão + suavização (Bansal et al.)",
+              "0,72"
+            ],
+            [
+              "Rede só com RGB",
+              "0,69"
+            ],
+            [
+              "Rede só com fluxo óptico",
+              "0,63"
+            ],
+            [
+              "Fusão por rede neural (este artigo)",
+              "0,726"
+            ]
+          ]
+        }
+      ]
+    },
+    "imagem": "/papers/2017-a-deep-neural-architecture-for-kitchen-activity-recognition.png"
   },
   "2017-deep-neural-networks-for-handwritten-chinese-character-recognition": {
     "slug": "2017-deep-neural-networks-for-handwritten-chinese-character-recognition",
@@ -18,11 +128,131 @@ export const resumos = {
       "Computer Vision",
       "Deep Learning"
     ],
-    "links": [],
-    "en": null,
-    "pt": null,
-    "semPdf": true,
-    "imagem": null
+    "links": [
+      {
+        "tipo": "editor",
+        "href": "https://www.computer.org/csdl/proceedings-article/bracis/2017/2407a192/12OmNyeWdNx"
+      }
+    ],
+    "en": {
+      "contexto": [
+        "Handwriting recognition turns handwritten text into digital text. It matters for reading postal addresses, bank checks, and forms. Chinese is much harder than English or digits: there are more than 50,000 characters, of which about 6,000 are common, and many of them differ by a single stroke. Figure 1 of the paper shows pairs of characters that look almost the same but mean different things.",
+        "Convolutional neural networks (CNNs) learn visual features from images and have reached state-of-the-art results on digits and on several alphabets. Before them, the best systems relied on handcrafted features designed for Chinese handwriting, which tend to suffer when the handwriting style changes."
+      ],
+      "ideia": [
+        "The authors ask a systematic question: which CNN architectures work best for handwritten Chinese characters, and does combining them help? They train seven well-known architectures from LeNet to VGG-16 and ZFNet, then test ten fusion combinations of them, on a subset of 200 classes from the HWDB1.1 dataset and on the ICDAR 2013 competition test set.",
+        "An analogy: a set of experts reads the same handwritten note. The paper checks whether one good reader is enough, or whether a committee of readers, each with a different background, catches what the first one misses."
+      ],
+      "algoritmos": [
+        "Step 1, architectures: each network takes 64 by 64 images, uses batch normalization after each convolution, ReLU activations, and dropout on the fully connected layers. The architectures differ in depth and filter sizes, from the two-layer LeNet to the deep VGG-16.",
+        "Step 2, training: each network is trained with AdaDelta, with weight decay and dropout, and the model with the best validation accuracy is kept.",
+        "Step 3, fusion: the probabilities of the best models are concatenated and a support vector machine (SVM) is trained on them to make the late fusion. Ten fusion combinations are tested."
+      ],
+      "resultados": [
+        "On the 200-class subset, ZFNet reaches 97.8% accuracy, and on ICDAR 2013 it reaches 98.2%. The paper reports that this surpasses the 96.13% human accuracy reported for ICDAR 2013. LeNet, the oldest architecture, is the weakest, at 92.4% and 93.5%.",
+        "Fusion does not help much. The fused models reach at most 97.5% and 97.9%, a little below ZFNet alone, and mixing architectures brings no clear gain. The authors conclude that a single well-chosen network has enough capacity, and that the networks may already be at their maximum learning capability. The most confused classes are 80 and 81, which differ by a single horizontal stroke."
+      ],
+      "limitacoes": [
+        "The experiments use a reduced version of the ICDAR data, because of computational limits, so the numbers are not directly comparable to the full benchmark. The human-accuracy comparison is taken from the competition report and depends on how that human test was run. The paper does not explore data augmentation or larger ensembles."
+      ],
+      "tabelas": [
+        {
+          "titulo": "Accuracy on the 200-class subset and on ICDAR 2013",
+          "colunas": [
+            "Model",
+            "200-Class",
+            "ICDAR 2013"
+          ],
+          "linhas": [
+            [
+              "LeNet",
+              "0.924",
+              "0.935"
+            ],
+            [
+              "VGG-9",
+              "0.967",
+              "0.972"
+            ],
+            [
+              "AlexNet",
+              "0.959",
+              "0.968"
+            ],
+            [
+              "ZFNet",
+              "0.978",
+              "0.982"
+            ],
+            [
+              "VGG-7 + VGG-9 + VGG-16 + ZFNet + SVM",
+              "0.975",
+              "0.978"
+            ]
+          ]
+        }
+      ]
+    },
+    "pt": {
+      "contexto": [
+        "Reconhecimento de escrita à mão transforma texto manuscrito em texto digital. É importante para ler endereços postais, cheques bancários e formulários. O chinês é bem mais difícil que o inglês ou os algarismos: há mais de 50.000 caracteres, dos quais cerca de 6.000 são comuns, e muitos diferem por um único traço. A Figura 1 do artigo mostra pares de caracteres que quase parecem iguais, mas têm significados diferentes.",
+        "Redes neurais convolucionais (CNNs) aprendem características visuais a partir de imagens e alcançaram resultados de estado da arte em algarismos e em vários alfabetos. Antes delas, os melhores sistemas usavam características construídas à mão, pensadas para a escrita chinesa, que tendem a falhar quando o estilo de escrita muda."
+      ],
+      "ideia": [
+        "Os autores fazem uma pergunta sistemática: quais arquiteturas de CNN funcionam melhor para caracteres chineses manuscritos, e combiná-las ajuda? Eles treinam sete arquiteturas conhecidas, do LeNet ao VGG-16 e ZFNet, e testam dez combinações de fusão delas, num subconjunto de 200 classes do HWDB1.1 e no conjunto de teste da competição ICDAR 2013.",
+        "Uma analogia: um grupo de especialistas lê a mesma anotação manuscrita. O artigo verifica se um bom leitor basta, ou se um comitê de leitores, cada um com uma formação diferente, pega o que o primeiro deixa passar."
+      ],
+      "algoritmos": [
+        "Passo 1, arquiteturas: cada rede recebe imagens de 64 por 64, usa normalização em lote após cada convolução, ativações ReLU e dropout nas camadas totalmente conectadas. As arquiteturas diferem em profundidade e tamanho de filtros, do LeNet de duas camadas ao VGG-16 profundo.",
+        "Passo 2, treino: cada rede é treinada com AdaDelta, com regularização de pesos e dropout, e o modelo com a melhor acurácia de validação é mantido.",
+        "Passo 3, fusão: as probabilidades dos melhores modelos são concatenadas e uma máquina de vetores de suporte (SVM) é treinada sobre elas para fazer a fusão tardia. São testadas dez combinações de fusão."
+      ],
+      "resultados": [
+        "No subconjunto de 200 classes, a ZFNet alcança 97,8% de acurácia, e no ICDAR 2013 chega a 98,2%. O artigo afirma que isso supera os 96,13% de acurácia humana relatados para o ICDAR 2013. O LeNet, a arquitetura mais antiga, é o pior, com 92,4% e 93,5%.",
+        "A fusão ajuda pouco. Os modelos fundidos chegam no máximo a 97,5% e 97,9%, um pouco abaixo da ZFNet sozinha, e misturar arquiteturas não traz ganho claro. Os autores concluem que uma única rede bem escolhida tem capacidade suficiente, e que as redes podem já estar no limite de aprendizado. As classes mais confundidas são a 80 e a 81, que diferem por um único traço horizontal."
+      ],
+      "limitacoes": [
+        "Os experimentos usam uma versão reduzida dos dados do ICDAR, por limitações de processamento, então os números não são diretamente comparáveis ao benchmark completo. A comparação com a acurácia humana vem do relatório da competição e depende de como esse teste humano foi feito. O artigo não explora aumento de dados nem conjuntos maiores."
+      ],
+      "tabelas": [
+        {
+          "titulo": "Acurácia no subconjunto de 200 classes e no ICDAR 2013",
+          "colunas": [
+            "Modelo",
+            "200 classes",
+            "ICDAR 2013"
+          ],
+          "linhas": [
+            [
+              "LeNet",
+              "0,924",
+              "0,935"
+            ],
+            [
+              "VGG-9",
+              "0,967",
+              "0,972"
+            ],
+            [
+              "AlexNet",
+              "0,959",
+              "0,968"
+            ],
+            [
+              "ZFNet",
+              "0,978",
+              "0,982"
+            ],
+            [
+              "VGG-7 + VGG-9 + VGG-16 + ZFNet + SVM",
+              "0,975",
+              "0,978"
+            ]
+          ]
+        }
+      ]
+    },
+    "imagem": "/papers/2017-deep-neural-networks-for-handwritten-chinese-character-recognition.png"
   },
   "2017-deep-neural-networks-for-kitchen-activity-recognition": {
     "slug": "2017-deep-neural-networks-for-kitchen-activity-recognition",
@@ -30,11 +260,113 @@ export const resumos = {
       "Computer Vision",
       "Deep Learning"
     ],
-    "links": [],
-    "en": null,
-    "pt": null,
-    "semPdf": true,
-    "imagem": null
+    "links": [
+      {
+        "tipo": "pdf",
+        "href": "https://www.meneguzzi.eu/felipe/pubs/ijcnn-deep-activity-recognition-2017.pdf"
+      }
+    ],
+    "en": {
+      "contexto": [
+        "Recognizing human actions in a kitchen is a practical problem. A system that knows the cook is cutting or boiling can warn about a timer, suggest the next step, or help someone who is cooking with limited mobility. The challenge is that cooking actions look alike: 'mixing' and 'baking' can both involve a bowl and an oven. A single static camera gives the images, but a single snapshot is often not enough, because motion matters.",
+        "Two kinds of input help. RGB frames show what the scene looks like. Optical flow shows how the pixels move between two consecutive frames: it encodes motion directly, regardless of appearance. A convolutional neural network (CNN) can learn features from either kind of input, and combining them gives the model both appearance and movement."
+      ],
+      "ideia": [
+        "Instead of one network, the authors train an ensemble. Each CNN specializes in a different view of the data (RGB or optical flow, and three different architectures). Their outputs are then fused, and the paper compares several fusion strategies, including a support vector machine, a neural network, and a long short-term memory network (LSTM) that reads the sequence of outputs.",
+        "An analogy: a kitchen has three cooks who each watch the same video. One focuses on the ingredients, one on the hands, and one on the motion. An assistant listens to all three and decides which action is happening, and it is also allowed to look back over the last few seconds before deciding."
+      ],
+      "algoritmos": [
+        "Step 1, preprocessing: each video frame is resized, and for each pair of consecutive frames a dense optical flow is computed, which gives the horizontal and vertical displacement of every pixel.",
+        "Step 2, the CNNs: GoogLeNet and AlexNet are trained on RGB frames and on optical flow, and SqueezeNet is added with the same training. The paper tests training from scratch and fine-tuning from ImageNet weights. Fine-tuning was not always best, which the authors explain by the kitchen images being very different from ImageNet.",
+        "Step 3, fusion: the probabilities of the networks are merged in several ways. Mean averages them. A neural network (NN) learns how much to trust each network. An SVM classifies the stacked probabilities. An LSTM reads the sequence of probabilities across frames, which lets it use temporal context.",
+        "Step 4, post-processing: a window of 20 frames replaces each label with the majority label in its window, which removes short, isolated misclassifications. The best model combines three CNNs, LSTM fusion and post-processing: 3CNNs + LSTM + PP."
+      ],
+      "resultados": [
+        "The best model, 3CNNs + LSTM + PP, reaches 78.5% global accuracy on the KSCGR dataset. The strongest single network, AlexNet fine-tuned, reaches 75.1%. Fusion alone already helps: GoogLeNet with RGB and optical flow fused by a neural network reaches 72.6%, compared with 68.9% for RGB alone.",
+        "Compared with the previous state of the art, which uses hand-crafted features (Bansal et al.), the proposed approach is clearly better. Bansal et al. reach 64% accuracy without post-processing and 72% with it. The authors also show that the LSTM fusion gives the best precision, recall and F-measure in their table, not just the best accuracy."
+      ],
+      "limitacoes": [
+        "The results are for one kitchen dataset with a fixed camera, so they do not show that the approach works in other kitchens or with moving cameras. Some actions are rare in the training data, and the authors note that the class 'turning' performs poorly in several models, probably because the validation set has very few frames of it. The paper's future work includes temporal pooling and 3D CNNs."
+      ],
+      "tabelas": [
+        {
+          "titulo": "Global accuracy on the KSCGR dataset",
+          "colunas": [
+            "Approach",
+            "Accuracy"
+          ],
+          "linhas": [
+            [
+              "Hand-crafted features (Bansal et al.)",
+              "0.64"
+            ],
+            [
+              "Hand-crafted features + post-processing",
+              "0.72"
+            ],
+            [
+              "GoogLeNet RGB + optical flow + NN",
+              "0.726"
+            ],
+            [
+              "3CNNs + LSTM + PP (this paper)",
+              "0.785"
+            ]
+          ]
+        }
+      ]
+    },
+    "pt": {
+      "contexto": [
+        "Reconhecer ações humanas na cozinha é um problema prático. Um sistema que sabe se a pessoa está cortando ou fervendo pode lembrar de um timer, sugerir o próximo passo ou ajudar quem cozinha com mobilidade reduzida. O desafio é que ações de cozinha se parecem: 'misturar' e 'assar' podem envolver uma tigela e um forno. Uma única câmera fixa fornece as imagens, mas um instantâneo muitas vezes não basta, porque o movimento importa.",
+        "Dois tipos de entrada ajudam. Os quadros RGB mostram como a cena se parece. O fluxo óptico mostra como os pixels se movem entre dois quadros consecutivos: ele codifica o movimento diretamente, independentemente da aparência. Uma rede neural convolucional (CNN) aprende características de qualquer um dos dois, e combinar os dois dá ao modelo tanto aparência quanto movimento."
+      ],
+      "ideia": [
+        "Em vez de uma rede só, os autores treinam um conjunto de redes. Cada CNN se especializa em uma visão diferente dos dados (RGB ou fluxo óptico, e três arquiteturas diferentes). As saídas são então fundidas, e o artigo compara várias estratégias de fusão, incluindo uma máquina de vetores de suporte, uma rede neural e uma rede LSTM que lê a sequência de saídas.",
+        "Uma analogia: uma cozinha tem três cozinheiros que assistem ao mesmo vídeo. Um presta atenção nos ingredientes, outro nas mãos e outro no movimento. Um assistente ouve os três e decide qual ação está acontecendo, e ainda pode olhar os últimos segundos antes de decidir."
+      ],
+      "algoritmos": [
+        "Passo 1, pré-processamento: cada quadro de vídeo é redimensionado, e para cada par de quadros consecutivos é calculado um fluxo óptico denso, que dá o deslocamento horizontal e vertical de cada pixel.",
+        "Passo 2, as CNNs: GoogLeNet e AlexNet são treinadas com quadros RGB e com fluxo óptico, e a SqueezeNet entra com o mesmo treino. O artigo testa treinar do zero e ajustar a partir de pesos do ImageNet. O ajuste fino nem sempre foi o melhor, o que os autores explicam pelo fato de as imagens da cozinha serem muito diferentes das do ImageNet.",
+        "Passo 3, fusão: as probabilidades das redes são combinadas de várias formas. A média simplesmente as calcula. Uma rede neural (NN) aprende quanto confiar em cada rede. Uma SVM classifica as probabilidades empilhadas. Uma LSTM lê a sequência de probabilidades ao longo dos quadros, o que lhe permite usar contexto temporal.",
+        "Passo 4, pós-processamento: uma janela de 20 quadros troca cada rótulo pelo rótulo majoritário da janela, o que remove erros curtos e isolados. O melhor modelo combina três CNNs, fusão por LSTM e pós-processamento: 3CNNs + LSTM + PP."
+      ],
+      "resultados": [
+        "O melhor modelo, 3CNNs + LSTM + PP, alcança 78,5% de acurácia global no conjunto KSCGR. A melhor rede isolada, AlexNet com ajuste fino, chega a 75,1%. A fusão sozinha já ajuda: o GoogLeNet com RGB e fluxo óptico combinados por rede neural chega a 72,6%, contra 68,9% só com RGB.",
+        "Comparado com o estado da arte anterior, que usa características construídas à mão (Bansal et al.), a abordagem proposta é claramente melhor. Bansal et al. chegam a 64% de acurácia sem pós-processamento e 72% com ele. Os autores também mostram que a fusão por LSTM tem a melhor precisão, revocação e F-measure na tabela, não só a melhor acurácia."
+      ],
+      "limitacoes": [
+        "Os resultados são de um único conjunto de dados de cozinha, com câmera fixa, então não mostram que a abordagem funciona em outras cozinhas ou com câmeras em movimento. Algumas ações são raras no treino, e os autores observam que a classe 'turning' tem desempenho ruim em vários modelos, provavelmente porque o conjunto de validação tem poucos quadros dela. Os trabalhos futuros incluem agregação temporal e CNNs 3D."
+      ],
+      "tabelas": [
+        {
+          "titulo": "Acurácia global no conjunto KSCGR",
+          "colunas": [
+            "Abordagem",
+            "Acurácia"
+          ],
+          "linhas": [
+            [
+              "Características construídas à mão (Bansal et al.)",
+              "0,64"
+            ],
+            [
+              "Características à mão + pós-processamento",
+              "0,72"
+            ],
+            [
+              "GoogLeNet RGB + fluxo óptico + NN",
+              "0,726"
+            ],
+            [
+              "3CNNs + LSTM + PP (este artigo)",
+              "0,785"
+            ]
+          ]
+        }
+      ]
+    },
+    "imagem": "/papers/2017-deep-neural-networks-for-kitchen-activity-recognition.png"
   },
   "2017-hybrid-activity-and-plan-recognition-for-video-streams": {
     "slug": "2017-hybrid-activity-and-plan-recognition-for-video-streams",
@@ -110,19 +442,119 @@ export const resumos = {
     "slug": "2017-virtual-guide-dog-an-application-to-support-visually-impaired-people-through-deep-convolutional",
     "temas": [
       "Computer Vision",
-      "Deep Learning",
-      "Healthcare"
+      "Deep Learning"
     ],
     "links": [
+      {
+        "tipo": "pdf",
+        "href": "https://www.meneguzzi.eu/felipe/pubs/ijcnn-dogcentric-2017.pdf"
+      },
       {
         "tipo": "doi",
         "href": "https://doi.org/10.1109/IJCNN.2017.7966130"
       }
     ],
-    "en": null,
-    "pt": null,
-    "semPdf": true,
-    "imagem": null
+    "en": {
+      "contexto": [
+        "Human activity recognition is the task of identifying what a person or an animal is doing from video. It is hard because the camera itself moves: a camera worn on a dog's back shakes with every step, and the scene changes constantly. Deep convolutional neural networks (CNNs) learn visual features from data instead of having them designed by hand, and architectures such as AlexNet and GoogLeNet became standard for images.",
+        "Blind and visually impaired people rely on guide dogs for navigation, but a dog cannot describe what it perceives. A system that recognizes what the dog is doing, and says it aloud, could give the user a richer picture of the environment."
+      ],
+      "ideia": [
+        "The authors use a public dataset recorded by cameras mounted on dogs, the DogCentric Activity dataset, to train an activity recognizer. They then connect the recognizer to audio feedback, so the user hears a short phrase whenever the dog's activity changes, for example 'There is a car on your way.'",
+        "An analogy: a friend describes your surroundings by watching what your guide dog does. The dog's behavior is a strong clue to what is happening around the user, and the system turns that clue into a sentence."
+      ],
+      "algoritmos": [
+        "Step 1, two CNNs in parallel: AlexNet and GoogLeNet receive the same frames, resized to 256 by 256. The two networks are complementary, because each learns different features from the same image.",
+        "Step 2, training: each network is trained in two ways, from scratch and by fine-tuning from ImageNet weights. The fine-tuned versions performed better, so they were the ones combined.",
+        "Step 3, late fusion: the softmax outputs of both networks are stacked and classified by a linear SVM, which gives a fused prediction for each frame.",
+        "Step 4, post-processing: a sliding window of 10 frames replaces each frame's label with the majority label in its window, which removes isolated misclassified frames. The window size was chosen after testing values from 10 to 50 frames."
+      ],
+      "resultados": [
+        "The final system, Fused+SVM+PP, reaches 75.6% global accuracy on the DogCentric test set. The best single model before smoothing, Fused+SVM, reaches 68.2%. Fine-tuned AlexNet alone reaches 52.6%, so combining the two networks and the smoothing step each add a clear gain.",
+        "Compared with the published state of the art on the same dataset, the final system is above the best result reported by Ryoo et al. (PoT+ITF, 74.5%) and above the multi-channel baseline of Iwashita et al. (60.5%). The improvement is modest but consistent across the class-level results."
+      ],
+      "limitacoes": [
+        "Per-class results are uneven. Right (0.0% in the fused model) and Left (11.4%) are almost never recognized, because they are underrepresented and the fine-tuned models already score low on them. The paper also notes that the smoothing step can erase correctly predicted short segments. The application was built and demonstrated with five of the ten classes, and the paper does not report a user study with visually impaired people."
+      ],
+      "tabelas": [
+        {
+          "titulo": "Global accuracy on the DogCentric Activity dataset",
+          "colunas": [
+            "Approach",
+            "Accuracy"
+          ],
+          "linhas": [
+            [
+              "Multi-channel (Iwashita et al.)",
+              "0.605"
+            ],
+            [
+              "PoT+ITF (Ryoo et al.)",
+              "0.745"
+            ],
+            [
+              "Fused+SVM",
+              "0.682"
+            ],
+            [
+              "Fused+SVM+PP (this paper)",
+              "0.756"
+            ]
+          ]
+        }
+      ]
+    },
+    "pt": {
+      "contexto": [
+        "Reconhecimento de atividades humanas é a tarefa de identificar, a partir de vídeo, o que uma pessoa ou um animal está fazendo. É difícil porque a própria câmera se move: uma câmera presa às costas de um cachorro treme a cada passo, e a cena muda o tempo todo. Redes neurais convolucionais profundas (CNNs) aprendem características visuais a partir dos dados, em vez de elas serem desenhadas à mão, e arquiteturas como AlexNet e GoogLeNet viraram padrão para imagens.",
+        "Pessoas cegas ou com baixa visão dependem de cães-guia para se locomover, mas um cão não consegue descrever o que percebe. Um sistema que reconhece o que o cão está fazendo e fala isso em voz alta poderia dar ao usuário uma imagem mais rica do ambiente."
+      ],
+      "ideia": [
+        "Os autores usam um conjunto de dados público gravado por câmeras presas a cães, o DogCentric Activity, para treinar um reconhecedor de atividades. Depois ligam o reconhecedor a um retorno sonoro, para que o usuário ouça uma frase curta sempre que a atividade do cão muda, por exemplo 'Há um carro no seu caminho.'",
+        "Uma analogia: um amigo descreve o seu entorno observando o que o seu cão-guia faz. O comportamento do cão é uma pista forte do que acontece ao redor, e o sistema transforma essa pista em uma frase."
+      ],
+      "algoritmos": [
+        "Passo 1, duas CNNs em paralelo: AlexNet e GoogLeNet recebem os mesmos quadros, redimensionados para 256 por 256. As duas redes são complementares, porque cada uma aprende características diferentes da mesma imagem.",
+        "Passo 2, treino: cada rede é treinada de duas formas, do zero e por ajuste fino a partir de pesos do ImageNet. As versões com ajuste fino tiveram desempenho melhor, então foram as combinadas.",
+        "Passo 3, fusão tardia: as saídas softmax das duas redes são empilhadas e classificadas por uma SVM linear, o que dá uma previsão fundida para cada quadro.",
+        "Passo 4, pós-processamento: uma janela deslizante de 10 quadros troca o rótulo de cada quadro pelo rótulo majoritário da janela, o que remove quadros isolados classificados errado. O tamanho da janela foi escolhido testando valores de 10 a 50 quadros."
+      ],
+      "resultados": [
+        "O sistema final, Fused+SVM+PP, alcança 75,6% de acurácia global no conjunto de teste do DogCentric. O melhor modelo antes do suavizado, Fused+SVM, chega a 68,2%. A AlexNet com ajuste fino sozinha chega a 52,6%, então combinar as duas redes e o passo de suavização trazem ganhos claros em cada etapa.",
+        "Comparado com o estado da arte publicado no mesmo conjunto de dados, o sistema final fica acima do melhor resultado relatado por Ryoo et al. (PoT+ITF, 74,5%) e acima da referência multicanal de Iwashita et al. (60,5%). A melhora é modesta, mas consistente nos resultados por classe."
+      ],
+      "limitacoes": [
+        "Os resultados por classe são desiguais. Right (0,0% no modelo fundido) e Left (11,4%) quase nunca são reconhecidas, porque são pouco representadas e os modelos com ajuste fino já pontuam baixo nelas. O artigo também observa que a suavização pode apagar segmentos curtos classificados corretamente. A aplicação foi montada e demonstrada com cinco das dez classes, e o artigo não relata um estudo com usuários com deficiência visual."
+      ],
+      "tabelas": [
+        {
+          "titulo": "Acurácia global no conjunto de dados DogCentric Activity",
+          "colunas": [
+            "Abordagem",
+            "Acurácia"
+          ],
+          "linhas": [
+            [
+              "Multicanal (Iwashita et al.)",
+              "0,605"
+            ],
+            [
+              "PoT+ITF (Ryoo et al.)",
+              "0,745"
+            ],
+            [
+              "Fused+SVM",
+              "0,682"
+            ],
+            [
+              "Fused+SVM+PP (este artigo)",
+              "0,756"
+            ]
+          ]
+        }
+      ]
+    },
+    "imagem": "/papers/2017-virtual-guide-dog-an-application-to-support-visually-impaired-people-through-deep-convolutional.png"
   },
   "2018-beating-bomberman-with-artificial-intelligence": {
     "slug": "2018-beating-bomberman-with-artificial-intelligence",
@@ -132,7 +564,7 @@ export const resumos = {
     "links": [
       {
         "tipo": "doi",
-        "href": "https://sol.sbc.org.br/index.php/eniac/article/view/4430"
+        "href": "https://doi.org/10.5753/eniac.2018.4430"
       }
     ],
     "en": {
@@ -205,11 +637,111 @@ export const resumos = {
       "Computer Vision",
       "Deep Learning"
     ],
-    "links": [],
-    "en": null,
-    "pt": null,
-    "semPdf": true,
-    "imagem": null
+    "links": [
+      {
+        "tipo": "editor",
+        "href": "https://ieeexplore.ieee.org/abstract/document/8489297"
+      }
+    ],
+    "en": {
+      "contexto": [
+        "Action recognition is the task of identifying which action happens in a sequence of frames, such as drinking, petting, or cutting. Traditional methods use handcrafted features designed for each problem. Deep neural networks learn their own features from raw video, but they usually need very large labeled datasets, and with small data they tend to overfit: they memorize the training videos and generalize poorly.",
+        "Two kinds of input are used. Still RGB frames show appearance. Optical flow shows the motion of each pixel between frames. Architectures can also treat time explicitly: a recurrent network (LRCN) reads the sequence of features extracted from each frame, and a two-stream network combines a still-image stream with an optical-flow stream."
+      ],
+      "ideia": [
+        "The question is practical: is deep learning worth using when labeled data is scarce? The authors test this on three datasets with different characteristics: KSCGR, recorded by a static camera in a kitchen; DogCentric, recorded by a camera on a dog, with lots of motion and similar classes; and UCF-11, with dynamic scenes and dissimilar classes.",
+        "An analogy: a student who has seen only a few examples of each activity. Memorizing them is easy and useless. The question is whether a student who looks at how the scene changes over time can learn to generalize from those few examples."
+      ],
+      "algoritmos": [
+        "Step 1, preprocessing: frames are resized to 256 by 256, and dense optical flow is computed for consecutive frames and encoded as color images, so each video yields two datasets: RGB and optical flow.",
+        "Step 2, architectures: Inception-V3 and VGG-16 are used as feature extractors, with the features classified by an SVM or read by an LRCN. Two-stream networks combine the RGB and optical-flow streams by mean or by concatenation.",
+        "Step 3, search: a grid search over dropout and learning rate is applied to the main models, which gives 600 trained models in total. The best learning-rate and dropout combinations were high dropout and low learning rate."
+      ],
+      "resultados": [
+        "On KSCGR, the best model is an Inception-V3 with LRCN, which reaches 73.3% accuracy, and the best static model reaches 72.3%. Temporal approaches are better than static ones there, which supports the idea that deep learning does work on this small dataset.",
+        "On DogCentric the picture changes. The best model in this paper, a VGG-16 with convolutional LRCN, reaches 60% accuracy, which is below the handcrafted baseline of Iwashita et al. (61%) and clearly below the best published results (Ryoo et al., 75%, and the two-CNN fusion of Monteiro et al., 75%). The authors conclude that deep learning is feasible on small datasets, but the gain depends on the dataset."
+      ],
+      "limitacoes": [
+        "Each dataset is small and the comparisons with the state of the art use the values reported in other papers, under their own protocols. The grid search is simple, and the DogCentric results show that the best models can underperform when the classes are very similar and the camera moves a lot. The authors plan to build regularized architectures that do not have so many parameters."
+      ],
+      "tabelas": [
+        {
+          "titulo": "Accuracy on the DogCentric dataset",
+          "colunas": [
+            "Approach",
+            "Accuracy"
+          ],
+          "linhas": [
+            [
+              "Multi-channel kernel (Iwashita et al.)",
+              "0.61"
+            ],
+            [
+              "PoT+ITF (Ryoo et al.)",
+              "0.75"
+            ],
+            [
+              "2 CNNs-SVM-PP (Monteiro et al.)",
+              "0.75"
+            ],
+            [
+              "VGG-16 CONV-LRCN (this paper)",
+              "0.60"
+            ]
+          ]
+        }
+      ]
+    },
+    "pt": {
+      "contexto": [
+        "Reconhecimento de ações é a tarefa de identificar qual ação acontece numa sequência de quadros, como beber, fazer carinho ou cortar. Métodos tradicionais usam características construídas à mão para cada problema. Redes neurais profundas aprendem as próprias características a partir do vídeo bruto, mas costumam precisar de conjuntos rotulados muito grandes, e com dados pequenos tendem a sobreajustar: memorizam os vídeos de treino e generalizam mal.",
+        "Duas entradas são usadas. Quadros RGB mostram a aparência. O fluxo óptico mostra o movimento de cada pixel entre quadros. As arquiteturas também podem tratar o tempo explicitamente: uma rede recorrente (LRCN) lê a sequência de características extraídas de cada quadro, e uma rede de dois fluxos combina um fluxo de imagens estáticas com um fluxo de fluxo óptico."
+      ],
+      "ideia": [
+        "A pergunta é prática: vale a pena usar aprendizado profundo quando os dados rotulados são escassos? Os autores testam isso em três conjuntos com características diferentes: o KSCGR, gravado por uma câmera fixa numa cozinha; o DogCentric, gravado por uma câmera presa a um cachorro, com muito movimento e classes parecidas; e o UCF-11, com cenas dinâmicas e classes bem diferentes entre si.",
+        "Uma analogia: um aluno que viu poucos exemplos de cada atividade. Decorar esses exemplos é fácil e não ajuda. A pergunta é se um aluno que observa como a cena muda ao longo do tempo consegue generalizar a partir desses poucos exemplos."
+      ],
+      "algoritmos": [
+        "Passo 1, pré-processamento: os quadros são redimensionados para 256 por 256, e o fluxo óptico denso é calculado entre quadros consecutivos e codificado como imagens coloridas, de modo que cada vídeo gera dois conjuntos de dados: RGB e fluxo óptico.",
+        "Passo 2, arquiteturas: Inception-V3 e VGG-16 são usadas como extratores de características, com as características classificadas por uma SVM ou lidas por uma LRCN. Redes de dois fluxos combinam os fluxos RGB e de fluxo óptico por média ou por concatenação.",
+        "Passo 3, busca: uma busca em grade sobre dropout e taxa de aprendizado é aplicada aos principais modelos, o que resulta em 600 modelos treinados no total. As melhores combinações tiveram dropout alto e taxa de aprendizado baixa."
+      ],
+      "resultados": [
+        "No KSCGR, o melhor modelo é uma Inception-V3 com LRCN, que chega a 73,3% de acurácia, e o melhor modelo estático chega a 72,3%. As abordagens temporais superam as estáticas nesse conjunto, o que sustenta a ideia de que o aprendizado profundo funciona nesse conjunto pequeno.",
+        "No DogCentric, o quadro muda. O melhor modelo deste artigo, uma VGG-16 com LRCN convolucional, chega a 60% de acurácia, abaixo da referência de características construídas à mão de Iwashita et al. (61%) e claramente abaixo dos melhores resultados publicados (Ryoo et al., 75%, e a fusão de duas CNNs de Monteiro et al., 75%). Os autores concluem que o aprendizado profundo é viável com poucos dados, mas que o ganho depende do conjunto."
+      ],
+      "limitacoes": [
+        "Cada conjunto é pequeno, e as comparações com o estado da arte usam os valores publicados em outros artigos, com protocolos próprios. A busca em grade é simples, e os resultados do DogCentric mostram que os melhores modelos podem ficar abaixo quando as classes são muito parecidas e a câmera se move muito. Os autores planejam construir arquiteturas com regularização que não tenham tantos parâmetros."
+      ],
+      "tabelas": [
+        {
+          "titulo": "Acurácia no conjunto DogCentric",
+          "colunas": [
+            "Abordagem",
+            "Acurácia"
+          ],
+          "linhas": [
+            [
+              "Kernel multicanal (Iwashita et al.)",
+              "0,61"
+            ],
+            [
+              "PoT+ITF (Ryoo et al.)",
+              "0,75"
+            ],
+            [
+              "2 CNNs-SVM-PP (Monteiro et al.)",
+              "0,75"
+            ],
+            [
+              "VGG-16 CONV-LRCN (este artigo)",
+              "0,60"
+            ]
+          ]
+        }
+      ]
+    },
+    "imagem": "/papers/2018-evaluating-the-feasibility-of-deep-learning-for-action-recognition-in-small-datasets.png"
   },
   "2018-fusing-scene-context-to-improve-object-recognition": {
     "slug": "2018-fusing-scene-context-to-improve-object-recognition",
@@ -366,24 +898,258 @@ export const resumos = {
   "2018-norm-conflict-identification-using-vector-space-offsets": {
     "slug": "2018-norm-conflict-identification-using-vector-space-offsets",
     "temas": [
+      "Natural Language Processing",
       "Deep Learning"
     ],
-    "links": [],
-    "en": null,
-    "pt": null,
-    "semPdf": true,
-    "imagem": null
+    "links": [
+      {
+        "tipo": "doi",
+        "href": "https://doi.org/10.1109/IJCNN.2018.8489119"
+      }
+    ],
+    "en": {
+      "contexto": [
+        "A contract is a set of norms: statements that say what each party must do (an obligation), may do (a permission), or must not do (a prohibition). Two norms conflict when they apply to the same party and action but say different things, for example a permission to delay a payment and an obligation to pay on a fixed date. A contract with conflicting norms can be invalidated in whole or in part.",
+        "Sentence embeddings are numerical vectors that represent the meaning of a sentence, so that sentences with similar meanings are close in the vector space. Sent2Vec is one model that builds such vectors. Finding conflicts by hand is slow and error-prone, because real contracts can be very long: the authors' dataset averages about 40,000 characters per contract."
+      ],
+      "ideia": [
+        "The authors propose to detect conflicts by geometry. They learn an offset vector: the average displacement between the embeddings of conflicting pairs of norms. If a new pair of norms has a difference that matches this offset, the pair is likely to be a conflict; if not, it is probably consistent.",
+        "An analogy: imagine that every conflict pushes two sentences apart in the same direction, like a fixed arrow between them. If you learn the typical arrow from examples, you can check whether a new pair of sentences lines up with it."
+      ],
+      "algoritmos": [
+        "Step 1, dataset: a set of norm conflicts is built by modifying real norms, changing either the modal verb (for example, turning a prohibition into a permission) or the sentence structure while keeping the meaning. Non-conflicting norm pairs are taken from the norms not used to create conflicts, giving 204,443 pairs.",
+        "Step 2, embeddings: each norm is converted into a vector with a pretrained Sent2Vec model, using either the unigram model (600 dimensions) or the bigram model (700 dimensions).",
+        "Step 3, offset: with 10-fold cross-validation, the offset is computed from the conflicting pairs in nine folds. A pair is classified as a conflict when its distance to the learned offset is below a threshold. Euclidean distance and cosine distance are both tested, with thresholds varying across their range."
+      ],
+      "resultados": [
+        "The best configuration is the euclidean distance with the unigram model and threshold 2, with a mean accuracy of 0.95 across the folds. The bigram model gives the best result with cosine distance and threshold 0.8.",
+        "Compared with the previous approaches on the same dataset, the offset method is clearly better: Aires et al. report 0.78, and Aires and Meneguzzi, who use a deep learning model, report 0.84. The paper also shows that the extreme thresholds (0 and 2 for cosine) perform poorly, so the separation depends on choosing the right threshold."
+      ],
+      "limitacoes": [
+        "The dataset is built by modifying real norms, so the conflicts are synthetic, and the evaluation uses only five real contracts. The results depend on the pretrained Sent2Vec models, which were trained on English Wikipedia. The paper does not address the case where a conflict depends on context beyond the two sentences."
+      ],
+      "tabelas": [
+        {
+          "titulo": "Accuracy on the norm conflict dataset",
+          "colunas": [
+            "Approach",
+            "Accuracy"
+          ],
+          "linhas": [
+            [
+              "Aires et al. (rule-based)",
+              "0.78"
+            ],
+            [
+              "Aires and Meneguzzi (deep learning)",
+              "0.84"
+            ],
+            [
+              "Offset conflict (this paper)",
+              "0.95"
+            ]
+          ]
+        }
+      ]
+    },
+    "pt": {
+      "contexto": [
+        "Um contrato é um conjunto de normas: afirmações que dizem o que cada parte deve fazer (uma obrigação), pode fazer (uma permissão) ou não deve fazer (uma proibição). Duas normas entram em conflito quando se aplicam à mesma parte e à mesma ação, mas dizem coisas diferentes, por exemplo uma permissão para atrasar um pagamento e uma obrigação de pagar numa data fixa. Um contrato com normas conflitantes pode ser invalidado, no todo ou em parte.",
+        "Embeddings de sentenças são vetores numéricos que representam o significado de uma frase, de modo que frases de sentido parecido ficam próximas no espaço vetorial. O Sent2Vec é um modelo que constrói esses vetores. Encontrar conflitos à mão é lento e sujeito a erros, porque contratos reais podem ser muito longos: o conjunto de dados dos autores tem em média cerca de 40.000 caracteres por contrato."
+      ],
+      "ideia": [
+        "Os autores propõem detectar conflitos pela geometria. Eles aprendem um vetor de deslocamento: a diferença média entre os embeddings de pares de normas em conflito. Se um novo par de normas tem uma diferença parecida com esse deslocamento, o par provavelmente é um conflito; se não, provavelmente é consistente.",
+        "Uma analogia: imagine que cada conflito empurra duas frases na mesma direção, como uma seta fixa entre elas. Se você aprende a seta típica a partir de exemplos, pode verificar se um par novo de frases se alinha com ela."
+      ],
+      "algoritmos": [
+        "Passo 1, conjunto de dados: pares de conflito são criados modificando normas reais, trocando o verbo modal (por exemplo, transformando uma proibição em permissão) ou a estrutura da frase, mantendo o significado. Os pares sem conflito vêm das normas que não foram usadas para criar conflitos, totalizando 204.443 pares.",
+        "Passo 2, embeddings: cada norma é convertida em um vetor com um modelo Sent2Vec pré-treinado, na versão de unigramas (600 dimensões) ou de bigramas (700 dimensões).",
+        "Passo 3, deslocamento: com validação cruzada de 10 partes, o deslocamento é calculado a partir dos pares em conflito de nove partes. Um par é classificado como conflito quando sua distância até o deslocamento aprendido fica abaixo de um limiar. São testadas as distâncias euclidiana e cosseno, variando o limiar ao longo da faixa de cada uma."
+      ],
+      "resultados": [
+        "A melhor configuração é a distância euclidiana com o modelo de unigramas e limiar 2, com acurácia média de 0,95 nas partes. O modelo de bigramas tem o melhor resultado com a distância cosseno e limiar 0,8.",
+        "Comparada às abordagens anteriores no mesmo conjunto de dados, a proposta é claramente melhor: Aires et al. reportam 0,78, e Aires e Meneguzzi, que usam um modelo de aprendizado profundo, reportam 0,84. O artigo também mostra que os limiares extremos (0 e 2, no caso do cosseno) têm desempenho ruim, então a separação depende de escolher bem o limiar."
+      ],
+      "limitacoes": [
+        "O conjunto de dados é construído modificando normas reais, então os conflitos são sintéticos, e a avaliação usa apenas cinco contratos reais. Os resultados dependem dos modelos Sent2Vec pré-treinados, que foram treinados em inglês, na Wikipédia. O artigo não trata os casos em que o conflito depende de um contexto além das duas frases."
+      ],
+      "tabelas": [
+        {
+          "titulo": "Acurácia no conjunto de dados de conflitos de normas",
+          "colunas": [
+            "Abordagem",
+            "Acurácia"
+          ],
+          "linhas": [
+            [
+              "Aires et al. (baseada em regras)",
+              "0,78"
+            ],
+            [
+              "Aires e Meneguzzi (aprendizado profundo)",
+              "0,84"
+            ],
+            [
+              "Deslocamento de conflito (este artigo)",
+              "0,95"
+            ]
+          ]
+        }
+      ]
+    },
+    "imagem": "/papers/2018-norm-conflict-identification-using-vector-space-offsets.png"
   },
   "2018-using-scene-context-to-improve-action-recognition": {
     "slug": "2018-using-scene-context-to-improve-action-recognition",
     "temas": [
-      "Computer Vision"
+      "Action Recognition",
+      "Convolutional Neural Networks"
     ],
-    "links": [],
-    "en": null,
-    "pt": null,
-    "semPdf": true,
-    "imagem": null
+    "links": [
+      {
+        "tipo": "doi",
+        "href": "https://doi.org/10.1007/978-3-030-13469-3_110"
+      }
+    ],
+    "en": {
+      "contexto": [
+        "Action recognition asks which action happens in a video: a person waving, a dog drinking, a ball being juggled. Most systems look only at motion, so the same movement in different places is treated as the same action. Convolutional neural networks (CNNs) learn visual features from images, and two-stream networks use two of them: one on still frames for appearance, and one on optical flow for motion.",
+        "The scene is the background where an action happens: a field, a kitchen, a street. Scene recognition is a well-studied problem on its own, and it gives information that motion alone cannot provide."
+      ],
+      "ideia": [
+        "The authors add a third source of information. Their two-stream architecture contains an action stream that focuses on the movements, and a scene stream that focuses on the background. The two streams are fused late, and a classifier decides the action.",
+        "An analogy: two baseball players and two tennis players can both swing a bat or a racket. The movement alone is ambiguous, but if you also see the field, you know which sport it is. The scene breaks the tie."
+      ],
+      "algoritmos": [
+        "Step 1, action stream: a CNN is trained on the video frames to recognize the action, starting from ImageNet weights, with mini-batches of 128 images and a grid search over dropout.",
+        "Step 2, scene stream: a pretrained scene-recognition CNN is used as a fixed feature extractor. It is not trained further, so it only describes the background of each frame.",
+        "Step 3, late fusion: the features of both streams are concatenated and passed to a classifier that predicts the action in each frame."
+      ],
+      "resultados": [
+        "On UCF-11, the scene stream helps: the fused model reaches 0.69 accuracy against about 0.65 for the action stream alone. The best classes are Diving and Horse riding, with 85% and 81% accuracy, and the lowest is Soccer juggling, which is performed in many different places, so the background is not informative for it.",
+        "On DogCentric, the approach does not help. Its accuracy is 0.53, while the standard two-stream network reaches 0.54 and the best published method (PoT+ITF, Ryoo et al.) reaches 0.75. The authors explain it by camera motion on the dog and by the fact that dog actions are not tied to a fixed background. The exception is Car, where the dog waits outside, which reaches 90% precision."
+      ],
+      "limitacoes": [
+        "The results are modest compared with the state of the art on both datasets, and the authors say their goal was to test whether scene context helps, not to beat the best methods. The scene stream uses a fixed extractor that was not trained for these videos. Camera motion strongly affects the scene recognition, as the DogCentric results show."
+      ],
+      "tabelas": [
+        {
+          "titulo": "Accuracy on UCF-11 and DogCentric",
+          "colunas": [
+            "Dataset",
+            "Approach",
+            "Accuracy"
+          ],
+          "linhas": [
+            [
+              "UCF-11",
+              "Two-stream (Simonyan and Zisserman)",
+              "0.71"
+            ],
+            [
+              "UCF-11",
+              "DTAM (Wang et al.)",
+              "0.71"
+            ],
+            [
+              "UCF-11",
+              "Visual-DTAM (Wang et al.)",
+              "0.75"
+            ],
+            [
+              "UCF-11",
+              "Action + scene streams (this paper)",
+              "0.69"
+            ],
+            [
+              "DogCentric",
+              "Two-stream (Simonyan and Zisserman)",
+              "0.54"
+            ],
+            [
+              "DogCentric",
+              "PoT+ITF (Ryoo et al.)",
+              "0.75"
+            ],
+            [
+              "DogCentric",
+              "Action + scene streams (this paper)",
+              "0.53"
+            ]
+          ]
+        }
+      ]
+    },
+    "pt": {
+      "contexto": [
+        "Reconhecimento de ações pergunta qual ação acontece num vídeo: uma pessoa acenando, um cachorro bebendo, uma bola sendo malabarizada. A maioria dos sistemas olha só o movimento, então o mesmo gesto em lugares diferentes é tratado como a mesma ação. Redes neurais convolucionais (CNNs) aprendem características visuais a partir de imagens, e as redes de dois fluxos usam duas delas: uma sobre quadros parados, para a aparência, e outra sobre o fluxo óptico, para o movimento.",
+        "A cena é o fundo onde a ação acontece: um campo, uma cozinha, uma rua. O reconhecimento de cenas é um problema bem estudado por si só, e traz uma informação que o movimento sozinho não dá."
+      ],
+      "ideia": [
+        "Os autores acrescentam uma terceira fonte de informação. A arquitetura de dois fluxos contém um fluxo de ação, que se concentra nos movimentos, e um fluxo de cena, que se concentra no fundo. Os dois fluxos são fundidos no fim, e um classificador decide a ação.",
+        "Uma analogia: dois jogadores de beisebol e dois de tênis podem balançar um bastão ou uma raquete. O movimento sozinho é ambíguo, mas, se você vê o campo, sabe qual é o esporte. A cena desempata."
+      ],
+      "algoritmos": [
+        "Passo 1, fluxo de ação: uma CNN é treinada nos quadros do vídeo para reconhecer a ação, partindo de pesos do ImageNet, com lotes de 128 imagens e busca em grade sobre o dropout.",
+        "Passo 2, fluxo de cena: uma CNN pré-treinada em reconhecimento de cenas é usada como extrator fixo de características. Ela não é treinada de novo, então só descreve o fundo de cada quadro.",
+        "Passo 3, fusão tardia: as características dos dois fluxos são concatenadas e passadas a um classificador que prevê a ação em cada quadro."
+      ],
+      "resultados": [
+        "No UCF-11, o fluxo de cena ajuda: o modelo fundido chega a 0,69 de acurácia, contra cerca de 0,65 do fluxo de ação sozinho. As melhores classes são Diving e Horse riding, com 85% e 81% de acurácia, e a pior é Soccer juggling, que é feita em lugares muito diferentes, então o fundo não ajuda nela.",
+        "No DogCentric, a abordagem não ajuda. A acurácia é 0,53, enquanto a rede de dois fluxos padrão chega a 0,54 e o melhor método publicado (PoT+ITF, Ryoo et al.) chega a 0,75. Os autores explicam isso pelo movimento da câmera no cachorro e pelo fato de as ações do cachorro não estarem ligadas a um fundo fixo. A exceção é Car, em que o cachorro espera fora de casa, com precisão de 90%."
+      ],
+      "limitacoes": [
+        "Os resultados são modestos em comparação com o estado da arte nos dois conjuntos, e os autores dizem que o objetivo era testar se o contexto de cena ajuda, não superar os melhores métodos. O fluxo de cena usa um extrator fixo que não foi treinado para esses vídeos. O movimento da câmera afeta muito o reconhecimento de cena, como mostram os resultados do DogCentric."
+      ],
+      "tabelas": [
+        {
+          "titulo": "Acurácia no UCF-11 e no DogCentric",
+          "colunas": [
+            "Conjunto",
+            "Abordagem",
+            "Acurácia"
+          ],
+          "linhas": [
+            [
+              "UCF-11",
+              "Dois fluxos (Simonyan e Zisserman)",
+              "0,71"
+            ],
+            [
+              "UCF-11",
+              "DTAM (Wang et al.)",
+              "0,71"
+            ],
+            [
+              "UCF-11",
+              "Visual-DTAM (Wang et al.)",
+              "0,75"
+            ],
+            [
+              "UCF-11",
+              "Fluxos de ação + cena (este artigo)",
+              "0,69"
+            ],
+            [
+              "DogCentric",
+              "Dois fluxos (Simonyan e Zisserman)",
+              "0,54"
+            ],
+            [
+              "DogCentric",
+              "PoT+ITF (Ryoo et al.)",
+              "0,75"
+            ],
+            [
+              "DogCentric",
+              "Fluxos de ação + cena (este artigo)",
+              "0,53"
+            ]
+          ]
+        }
+      ]
+    },
+    "imagem": "/papers/2018-using-scene-context-to-improve-action-recognition.png"
   },
   "2020-imitating-unknown-policies-via-exploration": {
     "slug": "2020-imitating-unknown-policies-via-exploration",
@@ -470,29 +1236,292 @@ export const resumos = {
     "slug": "2020-object-based-goal-recognition-using-real-world-data",
     "temas": [
       "Computer Vision",
-      "Planning"
+      "Planning",
+      "Deep Learning"
     ],
     "links": [
       {
         "tipo": "doi",
-        "href": "https://doi.org/10.1007/978-3-030-60884-2_24"
+        "href": "https://link.springer.com/chapter/10.1007/978-3-030-60884-2_24"
       }
     ],
-    "en": null,
-    "pt": null,
-    "semPdf": true,
-    "imagem": null
+    "en": {
+      "contexto": [
+        "Goal recognition asks a simple question: given what someone is doing, what are they trying to achieve? It matters for ambient assisted living, where a system should notice that a person is making an omelette and offer help at the right moment. Most goal recognition work reasons over actions, such as 'cut', 'stir', or 'pour'. Those actions are hard to see reliably in video.",
+        "A scene graph is a simple way to describe a picture: it lists objects and the relations between them, as triplets like (hand, holding, egg) or (egg, on, table). A STRIPS planning domain is a formal description of what can happen in an environment: each action has preconditions and effects over facts. Goal recognition then compares the observed facts with the possible goals, which are the states the person might be trying to reach."
+      ],
+      "ideia": [
+        "The authors propose to recognize goals from objects and their relations instead of actions. Each video frame becomes a set of relations between objects, and the sequence of frames becomes a sequence of observations about the state of the kitchen. The goal is the set of relations present in the last frame of each recipe.",
+        "An analogy: instead of guessing what a cook is doing by watching their hands, you look at the counter. If the bowl has cracked eggs on it and the pan is on the stove, the dish being prepared is much easier to guess than if you only saw the movements."
+      ],
+      "algoritmos": [
+        "Step 1, object detection: a Faster R-CNN with a VGG-16 backbone finds bounding boxes for the objects in each frame. Step 2, relationship detection: VRD-DSR predicts the predicate between each pair of detected objects, producing triplets that form a scene graph.",
+        "Step 3, domain generation. The paper gives two ways to build the STRIPS domain. In minimal interference, a domain engineer defines the verbs and predicates used to describe relations, and the domain is generated from the relations annotated in the training set. In no interference, the domain is generated entirely from the data.",
+        "Step 4, goal recognition problem. The initial state is the intersection of the relations present in the first frame of all training videos. Candidate goals are the intersection of the relations in the last frame of each recipe. For each test frame, the observed relations become the observations. A landmark-based recognizer, the state of the art for goal recognition, then outputs the most probable goal."
+      ],
+      "resultados": [
+        "The experiments use a kitchen dataset annotated by the authors, with five egg recipes: boiled egg, ham egg, kinshi egg, omelette, and scrambled egg. Table 1 reports accuracy when the recognizer sees only a fraction of the observations, from 10% to 100%, using ground-truth relations.",
+        "With full observability, boiled egg is recognized perfectly (accuracy 1.00), while kinshi egg is almost never recognized (0.12). Ham egg, omelette and scrambled egg fall in between. Accuracy does not improve much as observability grows, because the early frames of similar recipes look alike.",
+        "When the relations come from the VRD-DSR detector instead of the annotations, the picture is similar: boiled egg remains at 1.00, and most other recipes drop slightly, which shows the detector's errors propagate into goal recognition."
+      ],
+      "limitacoes": [
+        "The dataset covers a single kitchen and a small set of egg recipes, so the results may not transfer to other scenes or foods. The accuracy on some recipes is low, and the paper reports it openly. The authors plan to test other object and relationship detectors, and other goal recognizers, as future work."
+      ],
+      "tabelas": [
+        {
+          "titulo": "Goal recognition accuracy with full observability (100%)",
+          "colunas": [
+            "Recipe",
+            "Ground-truth relations",
+            "VRD-DSR detector"
+          ],
+          "linhas": [
+            [
+              "Boiled egg",
+              "1.00",
+              "1.00"
+            ],
+            [
+              "Ham egg",
+              "0.76",
+              "0.65"
+            ],
+            [
+              "Kinshi egg",
+              "0.12",
+              "0.11"
+            ],
+            [
+              "Omelette",
+              "0.48",
+              "0.56"
+            ],
+            [
+              "Scrambled egg",
+              "0.59",
+              "0.44"
+            ]
+          ]
+        }
+      ]
+    },
+    "pt": {
+      "contexto": [
+        "Reconhecimento de objetivos responde a uma pergunta simples: observando o que alguém faz, qual é o objetivo dessa pessoa? Isso importa para a vida assistida por ambientes, em que um sistema deveria perceber que a pessoa está fazendo uma omelete e oferecer ajuda no momento certo. A maior parte dos trabalhos raciocina sobre ações, como cortar, mexer ou despejar. Essas ações são difíceis de ver de forma confiável em vídeo.",
+        "Um grafo de cena é uma forma simples de descrever uma imagem: lista os objetos e as relações entre eles, em tríades como (mão, segurando, ovo) ou (ovo, sobre, mesa). Um domínio de planejamento STRIPS é uma descrição formal do que pode acontecer no ambiente: cada ação tem pré-condições e efeitos sobre fatos. O reconhecimento de objetivos compara os fatos observados com os objetivos possíveis, que são os estados que a pessoa pode estar tentando alcançar."
+      ],
+      "ideia": [
+        "Os autores propõem reconhecer objetivos a partir de objetos e suas relações, em vez de ações. Cada quadro do vídeo vira um conjunto de relações entre objetos, e a sequência de quadros vira uma sequência de observações sobre o estado da cozinha. O objetivo é o conjunto de relações presente no último quadro de cada receita.",
+        "Uma analogia: em vez de adivinhar o que um cozinheiro faz observando as mãos, você olha a bancada. Se a tigela tem ovos quebrados e a frigideira está no fogão, o prato em preparo fica bem mais fácil de adivinhar do que se você só visse os movimentos."
+      ],
+      "algoritmos": [
+        "Passo 1, detecção de objetos: uma Faster R-CNN com base VGG-16 encontra caixas delimitadoras dos objetos em cada quadro. Passo 2, detecção de relações: o VRD-DSR prevê o predicado entre cada par de objetos detectados, produzindo tríades que formam um grafo de cena.",
+        "Passo 3, geração do domínio. O artigo apresenta duas formas de montar o domínio STRIPS. Na interferência mínima, um engenheiro de domínio define os verbos e predicados usados para descrever as relações, e o domínio é gerado a partir das relações anotadas no conjunto de treino. Na ausência de interferência, o domínio é gerado inteiramente a partir dos dados.",
+        "Passo 4, problema de reconhecimento de objetivos. O estado inicial é a interseção das relações presentes no primeiro quadro de todos os vídeos de treino. Os objetivos candidatos são a interseção das relações do último quadro de cada receita. Para cada quadro de teste, as relações observadas viram observações. Um reconhecedor baseado em landmarks, o estado da arte em reconhecimento de objetivos, então devolve o objetivo mais provável."
+      ],
+      "resultados": [
+        "Os experimentos usam um conjunto de dados de cozinha anotado pelos próprios autores, com cinco receitas de ovo: ovo cozido, ovo com presunto, ovo kinshi, omelete e ovo mexido. A Tabela 1 reporta a acurácia quando o reconhecedor vê apenas uma fração das observações, de 10% a 100%, usando relações anotadas.",
+        "Com observabilidade total, o ovo cozido é reconhecido perfeitamente (acurácia 1,00), enquanto o ovo kinshi quase nunca é reconhecido (0,12). Ovo com presunto, omelete e ovo mexido ficam no meio. A acurácia não melhora muito conforme a observabilidade cresce, porque os primeiros quadros de receitas parecidas são semelhantes.",
+        "Quando as relações vêm do detector VRD-DSR em vez das anotações, o quadro é parecido: o ovo cozido continua em 1,00, e a maioria das outras receitas cai um pouco, o que mostra que os erros do detector se propagam para o reconhecimento de objetivos."
+      ],
+      "limitacoes": [
+        "O conjunto de dados cobre uma única cozinha e um pequeno conjunto de receitas de ovo, então os resultados podem não se transferir para outras cenas ou alimentos. A acurácia de algumas receitas é baixa, e o artigo reporta isso abertamente. Como trabalho futuro, os autores planejam testar outros detectores de objetos e relações, e outros reconhecedores de objetivos."
+      ],
+      "tabelas": [
+        {
+          "titulo": "Acurácia do reconhecimento de objetivos com observabilidade total (100%)",
+          "colunas": [
+            "Receita",
+            "Relações anotadas",
+            "Detector VRD-DSR"
+          ],
+          "linhas": [
+            [
+              "Ovo cozido",
+              "1,00",
+              "1,00"
+            ],
+            [
+              "Ovo com presunto",
+              "0,76",
+              "0,65"
+            ],
+            [
+              "Ovo kinshi",
+              "0,12",
+              "0,11"
+            ],
+            [
+              "Omelete",
+              "0,48",
+              "0,56"
+            ],
+            [
+              "Ovo mexido",
+              "0,59",
+              "0,44"
+            ]
+          ]
+        }
+      ]
+    },
+    "imagem": "/papers/2020-object-based-goal-recognition-using-real-world-data.png"
   },
   "2022-how-resilient-are-imitation-learning-methods-to-sub-optimal-experts": {
     "slug": "2022-how-resilient-are-imitation-learning-methods-to-sub-optimal-experts",
     "temas": [
       "Imitation Learning",
-      "Reinforcement Learning"
+      "Self-Supervised Learning",
+      "Learning from Observations"
     ],
-    "links": [],
-    "en": null,
-    "pt": null,
-    "semPdf": true,
-    "imagem": null
+    "links": [
+      {
+        "tipo": "doi",
+        "href": "https://link.springer.com/chapter/10.1007/978-3-031-21689-3_32"
+      }
+    ],
+    "en": {
+      "contexto": [
+        "Imitation learning teaches an agent to behave like an expert from demonstrations. The usual assumption is that the expert is good. In practice, demonstrations come from people or from policies that make mistakes, so the data is often sub-optimal. Nobody had systematically measured how much each imitation method degrades when the expert gets worse.",
+        "Learning from observation means the demonstrations contain only states, with no actions. Some methods first learn to classify the transition between two states, which is the action that produced it, and then imitate the expert. Others, such as behavioral cloning (BC), directly copy the actions. GAIL uses a discriminator in an adversarial game to match the expert's distribution."
+      ],
+      "ideia": [
+        "The authors ask a practical question: if the teacher is not perfect, which imitation methods still work? They fix four algorithms and create five experts of decreasing quality for each environment, and then measure how each algorithm behaves with each expert.",
+        "An analogy: a student learns to cook by watching a chef. If the chef is excellent, the student learns well. If the chef makes small mistakes, does the student still cook a good dish? Some students copy every move and inherit the mistakes, while others learn the underlying process and are less affected."
+      ],
+      "algoritmos": [
+        "Step 1, experts: agents trained with DQN and PPO are used as experts for four environments (CartPole, Acrobot, MountainCar, LunarLander). Each expert is kept only if it reaches a reward threshold, which defines five levels of quality, from Expert1 (best) to Expert5 (worst).",
+        "Step 2, algorithms: four imitation methods are compared. BC and GAIL are the classical baselines. ILPO and IUPE are self-supervised: they first learn to label the action between two states, and then imitate the expert with those labels.",
+        "Step 3, evaluation: each algorithm is run 10 times for 100 epochs with a small two-layer perceptron. Two metrics are reported: performance (P), which is the fraction of episodes that solve the task, and average episodic reward (AER)."
+      ],
+      "resultados": [
+        "With the optimal expert, all methods solve CartPole (performance 1), and the self-supervised methods are the most stable. On MountainCar, BC and GAIL fail completely (performance 0), while ILPO reaches a performance of 0.15 and IUPE 0.38 with an AER of -166.97.",
+        "Across the experts, the paper concludes that self-supervised methods are relatively resilient to sub-optimal experts, while the supervised method (BC) is not. Some sub-optimal experts even help: on LunarLander, less-optimal experts seem to act as a regularizer, and the self-supervised methods perform better with them."
+      ],
+      "limitacoes": [
+        "The study uses four small control environments and small multilayer perceptrons, so the conclusions may not hold for images or larger models. The degrees of optimality are defined by a reward threshold, which is a convenient but simple definition of expert quality. The authors plan to test partial observations as future work."
+      ],
+      "tabelas": [
+        {
+          "titulo": "Average episodic reward (AER) with the optimal expert (Expert1)",
+          "colunas": [
+            "Method",
+            "CartPole",
+            "Acrobot",
+            "MountainCar",
+            "LunarLander"
+          ],
+          "linhas": [
+            [
+              "Expert1",
+              "500",
+              "-82",
+              "-99",
+              "228"
+            ],
+            [
+              "BC",
+              "500",
+              "-93.6",
+              "-200",
+              "-80.9"
+            ],
+            [
+              "GAIL",
+              "500",
+              "-286.2",
+              "-200",
+              "-92.3"
+            ],
+            [
+              "ILPO",
+              "500",
+              "-75.7",
+              "-184.5",
+              "-98.5"
+            ],
+            [
+              "IUPE",
+              "500",
+              "-87.3",
+              "-167.0",
+              "-81.3"
+            ]
+          ]
+        }
+      ]
+    },
+    "pt": {
+      "contexto": [
+        "Aprendizado por imitação ensina um agente a agir como um especialista a partir de demonstrações. A suposição habitual é que o especialista é bom. Na prática, as demonstrações vêm de pessoas ou de políticas que cometem erros, então os dados costumam ser subótimos. Ninguém tinha medido de forma sistemática quanto cada método de imitação piora quando o especialista piora.",
+        "Aprendizado por observação significa que as demonstrações têm só estados, sem as ações. Alguns métodos aprendem primeiro a classificar a transição entre dois estados, ou seja, a ação que a produziu, e só depois imitam o especialista. Outros, como a clonagem de comportamento (BC), copiam diretamente as ações. O GAIL usa um discriminador num jogo adversarial para casar a distribuição do especialista."
+      ],
+      "ideia": [
+        "Os autores fazem uma pergunta prática: se o professor não é perfeito, quais métodos de imitação ainda funcionam? Eles fixam quatro algoritmos e criam cinco especialistas de qualidade decrescente para cada ambiente, e medem como cada algoritmo se comporta com cada um.",
+        "Uma analogia: um aluno aprende a cozinhar observando um chef. Se o chef é excelente, o aluno aprende bem. Se o chef comete pequenos erros, o aluno ainda faz um bom prato? Alguns alunos copiam cada movimento e herdam os erros, enquanto outros aprendem o processo por trás e são menos afetados."
+      ],
+      "algoritmos": [
+        "Passo 1, especialistas: agentes treinados com DQN e PPO servem de especialistas em quatro ambientes (CartPole, Acrobot, MountainCar e LunarLander). Cada especialista só é aceito se atingir um limiar de recompensa, o que define cinco níveis de qualidade, de Expert1 (melhor) a Expert5 (pior).",
+        "Passo 2, algoritmos: quatro métodos de imitação são comparados. BC e GAIL são as referências clássicas. ILPO e IUPE são autossupervisionados: primeiro aprendem a rotular a ação entre dois estados e depois imitam o especialista com esses rótulos.",
+        "Passo 3, avaliação: cada algoritmo roda 10 vezes por 100 épocas, com um perceptron de duas camadas. São reportadas duas métricas: o desempenho (P), que é a fração de episódios em que a tarefa é resolvida, e a recompensa média episódica (AER)."
+      ],
+      "resultados": [
+        "Com o especialista ótimo, todos os métodos resolvem o CartPole (desempenho 1), e os métodos autossupervisionados são os mais estáveis. No MountainCar, BC e GAIL falham por completo (desempenho 0), enquanto o ILPO chega a 0,15 e o IUPE a 0,38, com AER de −166,97.",
+        "Considerando todos os especialistas, o artigo conclui que os métodos autossupervisionados são relativamente resistentes a especialistas subótimos, enquanto o método supervisionado (BC) não é. Alguns especialistas subótimos chegam a ajudar: no LunarLander, os menos ótimos parecem agir como regularizadores, e os métodos autossupervisionados se saem melhor com eles."
+      ],
+      "limitacoes": [
+        "O estudo usa quatro ambientes de controle pequenos e perceptrons multicamadas pequenos, então as conclusões podem não valer para imagens ou modelos maiores. Os níveis de otimalidade são definidos por um limiar de recompensa, uma definição conveniente, mas simples, de qualidade do especialista. Os autores planejam testar observações parciais como trabalho futuro."
+      ],
+      "tabelas": [
+        {
+          "titulo": "Recompensa média episódica (AER) com o especialista ótimo (Expert1)",
+          "colunas": [
+            "Método",
+            "CartPole",
+            "Acrobot",
+            "MountainCar",
+            "LunarLander"
+          ],
+          "linhas": [
+            [
+              "Expert1",
+              "500",
+              "-82",
+              "-99",
+              "228"
+            ],
+            [
+              "BC",
+              "500",
+              "-93,6",
+              "-200",
+              "-80,9"
+            ],
+            [
+              "GAIL",
+              "500",
+              "-286,2",
+              "-200",
+              "-92,3"
+            ],
+            [
+              "ILPO",
+              "500",
+              "-75,7",
+              "-184,5",
+              "-98,5"
+            ],
+            [
+              "IUPE",
+              "500",
+              "-87,3",
+              "-167,0",
+              "-81,3"
+            ]
+          ]
+        }
+      ]
+    },
+    "imagem": "/papers/2022-how-resilient-are-imitation-learning-methods-to-sub-optimal-experts.png"
   }
 }

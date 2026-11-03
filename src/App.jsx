@@ -75,6 +75,10 @@ function Layout() {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-neutral-50 text-neutral-900 antialiased transition-colors duration-500 dark:bg-neutral-950 dark:text-neutral-100">
+      <div
+        aria-hidden="true"
+        className="no-print pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle,_rgb(0_0_0/0.09)_1px,_transparent_1px)] [background-size:28px_28px] [mask-image:radial-gradient(ellipse_at_center,_black_30%,_transparent_80%)] dark:bg-[radial-gradient(circle,_rgb(255_255_255/0.08)_1px,_transparent_1px)]"
+      />
       <div aria-hidden="true" className="no-print pointer-events-none fixed inset-0 -z-10 overflow-hidden">
         <div className="manchas absolute -left-32 -top-32 h-[28rem] w-[28rem] rounded-full bg-indigo-300/40 blur-3xl dark:bg-indigo-700/20" />
         <div className="manchas absolute -right-40 top-1/3 h-[32rem] w-[32rem] rounded-full bg-fuchsia-300/30 blur-3xl [animation-delay:-7s] dark:bg-fuchsia-800/20" />

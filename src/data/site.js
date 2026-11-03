@@ -22,8 +22,8 @@ export const perfil = {
     ],
   },
   foto: '/img/photo.jpg',
-  email: 'jrzmonteiro@gmail.com',
   links: [
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/juarez-monteiro/' },
     { label: 'Google Scholar', href: 'https://scholar.google.com/citations?user=LVhKmIIAAAAJ&hl=en' },
     { label: 'YouTube', href: 'https://www.youtube.com/@jrzmonteiro' },
     { label: 'GitHub', href: 'https://github.com/jrzmnt' },
@@ -148,7 +148,7 @@ export const premios = [
     ano: 2018,
   },
   {
-    titulo: { en: 'Best Student Paper', pt: 'Melhor Artigo de Estudante' },
+    titulo: { en: 'Best Paper', pt: 'Melhor Artigo' },
     evento: 'IEEE IJCNN',
     ano: 2017,
   },
@@ -159,7 +159,34 @@ export const premios = [
   },
 ]
 
-export const habilidades = {
-  en: ['Generative AI', 'Machine Learning', 'Deep Learning', 'Imitation Learning', 'Reinforcement Learning', 'Python', 'Data Science', 'Software Engineering', 'Git'],
-  pt: ['IA Generativa', 'Machine Learning', 'Deep Learning', 'Aprendizado por Imitação', 'Aprendizado por Reforço', 'Python', 'Ciência de Dados', 'Engenharia de Software', 'Git'],
-}
+// Habilidades agrupadas. Ferramentas citadas nos próprios artigos (PyTorch, OpenAI Gym) entram aqui.
+export const habilidades = [
+  {
+    titulo: { en: 'Machine learning', pt: 'Aprendizado de máquina' },
+    itens: {
+      en: ['Imitation Learning', 'Reinforcement Learning', 'Deep Learning', 'Generative AI'],
+      pt: ['Aprendizado por Imitação', 'Aprendizado por Reforço', 'Deep Learning', 'IA Generativa'],
+    },
+  },
+  {
+    titulo: { en: 'Foundation models and LLMs', pt: 'Modelos fundacionais e LLMs' },
+    itens: {
+      en: ['Tabular Foundation Models (TabPFN)', 'Language Models', 'Uncertainty Estimation'],
+      pt: ['Modelos fundacionais tabulares (TabPFN)', 'Modelos de linguagem', 'Estimativa de incerteza'],
+    },
+  },
+  {
+    titulo: { en: 'Tools', pt: 'Ferramentas' },
+    itens: {
+      en: ['Python', 'PyTorch', 'OpenAI Gym', 'Git'],
+      pt: ['Python', 'PyTorch', 'OpenAI Gym', 'Git'],
+    },
+  },
+  {
+    titulo: { en: 'Data and healthcare', pt: 'Dados e saúde' },
+    itens: {
+      en: ['Data Science', 'Synthetic EHR data', 'Clinical concept normalization'],
+      pt: ['Ciência de dados', 'Dados sintéticos de prontuários', 'Normalização de conceitos clínicos'],
+    },
+  },
+]

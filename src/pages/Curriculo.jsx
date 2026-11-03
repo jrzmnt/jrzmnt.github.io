@@ -31,7 +31,7 @@ export default function Curriculo() {
           <h1 className="hidden text-3xl font-bold print:block">{perfil.nome}</h1>
           <p className="text-lg text-indigo-600 dark:text-indigo-400">{perfil.cargo[idioma]}</p>
           <p className="mt-3 text-sm text-neutral-500 dark:text-neutral-400">
-            {perfil.email} · {perfil.links.map((l) => l.label).join(' · ')}
+            {perfil.links.map((l) => l.label).join(' · ')}
           </p>
           <p className="mt-6 leading-relaxed text-neutral-700 dark:text-neutral-300">{perfil.bio[idioma]}</p>
         </header>
@@ -92,22 +92,35 @@ export default function Curriculo() {
         <Secao titulo={t('premios')}>
           <ul className="space-y-4">
             {premios.map((item) => (
-              <li key={item.titulo.en}>
+              <li key={item.titulo.en} className="flex items-start gap-3">
+                <svg viewBox="0 0 24 24" className="mt-0.5 h-5 w-5 shrink-0 text-amber-500" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="9" r="6" />
+                  <path d="M8.5 14 7 22l5-2.5L17 22l-1.5-8" />
+                </svg>
+                <div>
                 <p className="font-medium">{item.titulo[idioma]}</p>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
                   {typeof item.evento === 'string' ? item.evento : item.evento[idioma]}, {item.ano}
                 </p>
+                </div>
               </li>
             ))}
           </ul>
         </Secao>
 
         <Secao titulo={t('habilidades')}>
-          <div className="flex flex-wrap gap-2">
-            {habilidades[idioma].map((h) => (
-              <span key={h} className="rounded-full bg-neutral-100 px-3 py-1 text-sm dark:bg-neutral-800">
-                {h}
-              </span>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {habilidades.map((grupo) => (
+              <div key={grupo.titulo.en}>
+                <p className="text-sm font-semibold text-neutral-800 dark:text-neutral-200">{grupo.titulo[idioma]}</p>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {grupo.itens[idioma].map((item) => (
+                    <span key={item} className="rounded-full border border-neutral-300 px-3 py-1 text-sm text-neutral-700 dark:border-neutral-700 dark:text-neutral-300">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </Secao>

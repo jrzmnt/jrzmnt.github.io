@@ -33,6 +33,13 @@ export default function Home() {
             >
               {t('verCurriculo')}
             </Link>
+            <a
+              href={`/cv/cv-juarez-monteiro-${idioma}.pdf`}
+              download
+              className="rounded-full border border-neutral-300 bg-white/60 px-5 py-2.5 text-sm font-medium transition hover:-translate-y-0.5 hover:border-neutral-900 dark:border-neutral-700 dark:bg-transparent dark:hover:border-neutral-100"
+            >
+              {t('baixarCvPdf')} ↓
+            </a>
           </div>
           <ul className="animar-entrada mt-6 flex flex-wrap gap-4 text-sm text-neutral-500 [animation-delay:440ms] dark:text-neutral-400">
             {perfil.links.map((link) => (
